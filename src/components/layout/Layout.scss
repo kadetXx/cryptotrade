@@ -1,0 +1,239 @@
+#layout {
+  display: flex;
+
+  #sidebar,
+  #collapse-sidebar {
+    width: 200px;
+    height: 100vh;
+    position: fixed;
+    background-color: #11315e;
+    padding: 0 20px;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.377);
+    z-index: 10;
+
+    .logo {
+      margin: 30px 0;
+
+      h2 {
+        display: flex;
+        // justify-content: center;
+        align-items: center;
+        color: #ff5500;
+        font-size: 1.3rem;
+        max-width: 100%;
+      }
+
+      span {
+        margin-right: 5px;
+      }
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 50% 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    li {
+      font-size: 1.2rem;
+      margin-bottom: 50px;
+
+      span {
+        margin-right: 7px;
+      }
+    }
+
+    a {
+      color: rgb(197, 197, 197);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    li.active a {
+      color: #fff;
+    }
+
+    button.close-menu {
+      display: none;
+    }
+  }
+
+  #sidebar.animate {
+    animation-name: slide;
+    animation-duration: 0.2s;
+    animation-timing-function: linear;
+
+    @keyframes slide {
+      from {
+        transform: translateX(-210px);
+      }
+
+      to {
+        transform: translateX(0);
+      }
+    }
+
+  }
+
+  #collapse-sidebar {
+
+    animation-name: slideout;
+    animation-duration: 0.2s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+
+    @keyframes slideout {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-210px);
+      }
+    }
+  }
+
+  @media (max-width: 1025px) {
+    #sidebar, #sidebar.animate {
+      animation-name: slideout;
+      animation-duration: 0.2s;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
+
+      @keyframes slideout {
+        from {
+          transform: translateX(0);
+        }
+
+        to {
+          transform: translateX(-210px);
+        }
+      }
+    }
+
+    #collapse-sidebar {
+      display: block;
+
+      animation-name: slide;
+      animation-duration: 0.2s;
+      animation-timing-function: linear;
+
+      @keyframes slide {
+        from {
+          transform: translateX(-210px);
+        }
+
+        to {
+          transform: translateX(0);
+        }
+      }
+
+      button.close-menu {
+        display: block;
+        position: absolute;
+        left: 200px;
+        bottom: 50px;
+        background-color: #11315e;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem;
+        box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.377);
+
+        span {
+          color: #fff;
+        }
+      }
+
+      button.close-menu:focus {
+        outline: none;
+      }
+    }
+  }
+
+  #main {
+    width: 100%;
+    padding: 1% 2% 10%;
+    margin-left: 200px;
+    min-height: 100vh;
+    transition: margin linear 0.2s;
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 45px;
+      margin-bottom: 30px;
+
+      .left {
+        button {
+          display: flex;
+          align-items: center;
+          background: none;
+          border: none;
+
+          span {
+            font-size: 27px;
+          }
+        }
+        button:focus {
+          outline: none;
+        }
+      }
+
+      .right {
+        display: flex;
+        align-items: center;
+      }
+
+      .language {
+        display: flex;
+        align-items: center;
+        margin: 0 10px;
+        color: #11315e;
+      }
+
+      .shortcut {
+        margin: 0 25px 0 10px;
+
+        span {
+          display: flex;
+          margin: 0;
+          color: rgb(139, 139, 139);
+        }
+      }
+
+      .profile-summary {
+        display: flex;
+        align-items: center;
+
+        img {
+          width: 30px;
+          height: 30px;
+          border-radius: 100%;
+          margin-right: 3px;
+        }
+
+        p {
+          margin: 0;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  .main-full {
+    margin-left: 0 !important;
+    transition: margin linear 0.2s;
+  }
+
+  @media (max-width: 1025px) {
+    #main {
+      margin-left: 0;
+    }
+  }
+}

@@ -1,0 +1,45 @@
+#dashboard {
+  section.top {
+    display: flex;
+    justify-content: space-between;
+  
+    section:nth-child(1) {
+      width: 68%;
+    }
+  
+    section:nth-child(2) {
+      width: 30%;
+    }
+  }
+
+  @media (max-width: 750px) {
+    section.top {
+      flex-direction: column;
+      padding: 2%;
+  
+      section {
+        width: 100% !important;
+        margin-bottom: 40px;
+      }
+    }
+  }
+
+  section.transactions {
+    margin-top: 40px;
+    padding: .8rem 1.5rem;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.158);
+    border-radius: 5px;
+    overflow-x: auto;
+  }
+}
+
+.box {
+  display: flex;
+  padding: .8rem 1.5rem;
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.158);
+  border-radius: 5px;
+
+  p {
+    margin-bottom: 0;
+  }
+}

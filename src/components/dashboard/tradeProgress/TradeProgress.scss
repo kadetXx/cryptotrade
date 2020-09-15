@@ -1,0 +1,39 @@
+#tradeProgress {
+  .box {
+    display: flex;
+    flex-direction: column;
+  
+    .top {
+      display: flex;
+      justify-content: space-between;
+  
+      small {
+        font-size: 13px;
+      }
+    }
+  
+    .ant-progress  {
+      margin: 5px 0;
+    }
+  
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 5px;
+
+      .right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        p {
+          margin-bottom: 5px;
+        }
+
+        button {
+          margin-bottom: 4px;
+        }
+      }
+    }
+  }
+}

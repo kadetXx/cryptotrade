@@ -1,0 +1,135 @@
+#calculator {
+  margin-top: 20px;
+
+  .box {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 755px) {
+    .box {
+      flex-direction: column;
+    }
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid #d6d6d6;
+    border-radius: 5px;
+    padding: 0.3rem 0.6rem;
+    color: grey;
+    box-sizing: border-box;
+
+    input {
+      border: none;
+      color: #000;
+      display: flex;
+      max-width: 100%;
+    }
+
+    input:focus {
+      border: none;
+      outline: none;
+    }
+
+    input::placeholder {
+      opacity: 0;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    input[type="number"] {
+      -moz-appearance: textfield;
+    }
+
+    small {
+      font-size: 13px;
+    }
+  }
+
+  label:focus-within {
+    border-color: #1890FF;
+  }
+
+  @media (max-width: 755px) {
+    label {
+      small {
+        display: none;
+      }
+
+      input::placeholder {
+        opacity: 1;
+      }
+    }
+  }
+
+
+  .left {
+    display: flex;
+    width: 48%;
+    align-items: center;
+    justify-content: space-between;
+
+    .material-icons {
+      font-size: 30px;
+      color: #11315E;
+    }
+
+    .ant-dropdown-trigger {
+      display: flex;
+      align-items: center;
+      padding: .3rem .6rem;
+      border: 1px solid #d6d6d6;
+
+      span {
+        font-size: 18px;
+        margin-left: 5px;
+      }
+    }
+
+    label {
+      width: 30%;
+    }
+  }
+
+  @media (max-width: 755px) {
+    .left {
+      width: 100%;
+    }
+  }
+
+  .right {
+    display: flex;
+    width: 48%;
+    align-items: center;
+    justify-content: space-between;
+
+    label {
+      flex-grow: 1;
+      margin-right: 5%;
+      width: 60%;
+    }
+
+    button:focus {
+      outline: none;
+    }
+  }
+
+  @media (max-width: 755px) {
+    .right {
+      width: 100%;
+      margin-top: 20px;
+
+      button {
+        padding: .3rem 1.5rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,71 @@
+#tradeBalance {
+  .trade-box {
+    display: flex;
+  
+    .left {
+      flex-grow: 1;
+  
+      p {
+        margin: 5px 0;
+      }
+  
+      p:nth-child(1) {
+        font-size: 1rem;
+        font-weight: 500;
+      }
+  
+      p:nth-child(2) {
+        font-size: 2rem;
+        font-weight: 600;
+        color: #11315E;
+      }
+  
+      p:nth-child(3) {
+        font-size: 1rem;
+      }
+    }
+  
+    .right {
+      display: flex;
+      align-items: center;
+      
+      button {
+        padding: .6rem 3rem;
+        background-color:  #FF5500;
+        border: none;
+        color: #fff;
+        border-radius: 20px;
+      }
+    }
+  }
+  
+  @media (max-width: 450px) {
+    
+    .trade-box {
+      // flex-direction: column;
+  
+      .left {
+        width: 60%;
+        p {
+          margin: 0;
+        }
+      }
+  
+      .right {
+        width: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        button {
+          padding: .4rem 1rem;
+          background-color:  #FF5500;
+          border: none;
+          color: #fff;
+          border-radius: 20px;
+        }
+      }
+    }
+  
+  }
+}
