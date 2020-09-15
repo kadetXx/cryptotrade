@@ -51,11 +51,33 @@ const columns = [
     title: 'Amount',
     dataIndex: 'amount',
     key: 'amount',
+    render: amount => (
+      <React.Fragment>
+        <b style={{color: '#4f4e4e'}}>$</b>{amount}
+      </React.Fragment>
+    )
   },
   {
     title: 'Currency',
     dataIndex: 'currency',
     key: 'currency',
+    render: currency => (
+      <React.Fragment>
+        {
+           currency === 'BTC' ? (
+            <p style={{display: 'flex', alignItems: 'center', marginBottom: '0'}}>
+              <i class="fab fa-bitcoin" style={{marginRight: '5px', color: '#FC9615'}}></i>
+              {currency}
+            </p>
+          ) : (
+            <p style={{display: 'flex', alignItems: 'center', marginBottom: '0'}}>
+              <i class="fab fa-ethereum" style={{marginRight: '5px', color: '#FC9615'}}></i>
+              {currency}
+            </p>
+          )
+        }
+      </React.Fragment>
+    )
   },
   {
     title: 'Tokens',
@@ -71,7 +93,7 @@ const data = [
     date: '13.08/2020',
     type: ['deposit'],
     amount: '150',
-    currency: 'BTC',
+    currency: 'ETH',
     tokens: '100'
   },
   {
@@ -79,7 +101,7 @@ const data = [
     status: 'Paid',
     date: '13.08/2020',
     type: ['deposit'],
-    amount: '150',
+    amount: '250',
     currency: 'BTC',
     tokens: '100'
   },
