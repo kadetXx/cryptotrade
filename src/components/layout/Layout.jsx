@@ -30,54 +30,54 @@ const Layout = ({ activeMenu, children }) => {
 
   return (
     <div id='layout'>
-      <section 
-        id={sidebar === true ? "sidebar" : "collapse-sidebar"} 
-        className={animate && 'animate'}
+      <section
+        id={sidebar === true ? "sidebar" : "collapse-sidebar"}
+        className={animate ? "animate" : ''}
       >
         <div className='logo'>
           <h2>
-            <span class='material-icons'>security</span> Cryptotrade
+            <span className='material-icons'>security</span> Trddex
           </h2>
         </div>
 
         <ul>
-          <li className={activeMenu === 'dashboard' ? 'active' : ''}>
+          <li className={activeMenu === "dashboard" ? "active" : ""}>
             <Link to='/dashboard'>
-              <span class='material-icons'>dashboard</span> Dashboard
+              <span className='material-icons'>dashboard</span> Dashboard
             </Link>
           </li>
-          <li className={activeMenu === 'wallet' ? 'active' : ''}>
-            <Link>
-              <span class='material-icons'>account_balance_wallet</span> Wallet
+          <li className={activeMenu === "wallet" ? "active" : ""}>
+            <Link to='/dashboard'>
+              <span className='material-icons'>account_balance_wallet</span> Wallet
             </Link>
           </li>
-          <li className={activeMenu === 'transactions' ? 'active' : ''}>
+          <li className={activeMenu === "transactions" ? "active" : ""}>
             <Link to='/dashboard/transactions'>
               <span className='material-icons'>receipt_long</span> Transactions
             </Link>
           </li>
-          <li className={activeMenu === 'profile' ? 'active' : ''}>
-            <Link>
+          <li className={activeMenu === "profile" ? "active" : ""}>
+            <Link to='/dashboard'>
               <span className='material-icons'>person_outline</span> Profile
             </Link>
           </li>
-          <li className={activeMenu === 'logout' ? 'active' : ''}>
-            <Link>
+          <li className={activeMenu === "logout" ? "active" : ""}>
+            <Link to='/dashboard'>
               <span className='material-icons'>exit_to_app</span>Logout
             </Link>
           </li>
         </ul>
 
         <button className='close-menu' onClick={() => setSidebar(!sidebar)}>
-          <span class='material-icons'>close</span>
+          <span className='material-icons'>close</span>
         </button>
       </section>
 
-      <section id='main' className={!sidebar && "main-full"}>
+      <section id='main' className={!sidebar ? "main-full" : ''}>
         <header>
           <div className='left'>
             <button onClick={() => [setSidebar(!sidebar), setAnimate(true)]}>
-              <span class='material-icons'>menu</span>
+              <span className='material-icons'>menu</span>
             </button>
           </div>
 
@@ -94,7 +94,7 @@ const Layout = ({ activeMenu, children }) => {
             </div>
 
             <div className='shortcut'>
-              <Link>
+              <Link to='/dashboard'>
                 <span className='material-icons'>account_balance_wallet</span>
               </Link>
             </div>

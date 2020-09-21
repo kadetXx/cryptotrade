@@ -12,12 +12,12 @@ const columns = [
         {
           status === 'Paid' ? (
             <p style={{display: 'flex', alignItems: 'center', marginBottom: '0'}}>
-              <span class="material-icons" style={{color: '#B1C95E',  width: '48px', height: '24px'}}>check_circle_outlined</span>
+              <span className="material-icons" style={{color: '#B1C95E',  width: '48px', height: '24px'}}>check_circle_outlined</span>
               {status}
             </p>
           ) : (
             <p style={{display: 'flex', alignItems: 'center', marginBottom: '0'}}>
-              <span class="material-icons" style={{color: '#FB775E', width: '48px', height: '24px'}}>error_outline</span>
+              <span className="material-icons" style={{color: '#FB775E', width: '48px', height: '24px'}}>error_outline</span>
               {status}
             </p>
           )
@@ -66,12 +66,12 @@ const columns = [
         {
            currency === 'BTC' ? (
             <p style={{display: 'flex', alignItems: 'center', marginBottom: '0'}}>
-              <i class="fab fa-bitcoin" style={{marginRight: '5px', color: '#FC9615'}}></i>
+              <i className="fab fa-bitcoin" style={{marginRight: '5px', color: '#FC9615'}}></i>
               {currency}
             </p>
           ) : (
             <p style={{display: 'flex', alignItems: 'center', marginBottom: '0'}}>
-              <i class="fab fa-ethereum" style={{marginRight: '5px', color: '#FC9615'}}></i>
+              <i className="fab fa-ethereum" style={{marginRight: '5px', color: '#FC9615'}}></i>
               {currency}
             </p>
           )
@@ -80,9 +80,9 @@ const columns = [
     )
   },
   {
-    title: 'Tokens',
-    dataIndex: 'tokens',
-    key: 'tokens',
+    title: 'Amount (BTC)',
+    dataIndex: 'coins',
+    key: 'coins',
   },
 ];
 
@@ -94,25 +94,25 @@ const data = [
     type: ['deposit'],
     amount: '150',
     currency: 'ETH',
-    tokens: '100'
+    coins: '0003'
   },
   {
-    key: '1',
+    key: '2',
     status: 'Paid',
     date: '13.08/2020',
     type: ['deposit'],
     amount: '250',
     currency: 'BTC',
-    tokens: '100'
+    coins: '0.0004'
   },
   {
-    key: '1',
+    key: '3',
     status: 'Paid',
     date: '13.08/2020',
     type: ['Withdrawal'],
     amount: '150',
     currency: 'BTC',
-    tokens: '100'
+    coins: '0.134'
   },
 ];
 

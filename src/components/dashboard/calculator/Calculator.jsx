@@ -30,7 +30,7 @@ const Calculator = () => {
             <input type="number" placeholder='USD'/>
           </label>
 
-          <span class="material-icons">arrow_right_alt</span>
+          <span className="material-icons">arrow_right_alt</span>
 
           <label>
             <small>{coin}</small>
@@ -38,7 +38,7 @@ const Calculator = () => {
           </label>
 
           <Dropdown overlay={menu}>
-            <p>{coin} <span class="material-icons">unfold_more</span></p>
+            <p>{coin} <span className="material-icons">unfold_more</span></p>
           </Dropdown>
         </div>
 
