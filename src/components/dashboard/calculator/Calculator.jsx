@@ -29,27 +29,15 @@ const Calculator = () => {
         : amount.length <= 0 && coin === "ETH"
         ? setAmount((coinAmount * res.data.rates.ETH).toString().slice(0, 8))
         : console.log(res.data);
-
-      // console.log(res.data)
     });
   };
 
   const handleCoinInput = () => {
-    if (coinAmount !== "") {
-      setDisableAmount(true);
-    } else {
-      setDisableAmount(false);
-      setCoinAmount("");
-    }
+    coinAmount !== "" ? setDisableAmount(true) : setDisableAmount(false);
   };
 
   const handleAmountInput = () => {
-    if (amount !== "") {
-      setDisableCoin(true);
-    } else {
-      setDisableCoin(false);
-      setAmount("");
-    }
+    amount !== "" ? setDisableCoin(true) : setDisableCoin(false);
   };
 
   const menu = (
