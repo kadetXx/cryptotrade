@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import "./Auth.scss";
 import Cookies from 'universal-cookie';
-// import axios from 'axios'
+import axios from 'axios'
 
 function SignUp() {
   const [fullName, setFullname] = useState('');
@@ -11,31 +11,31 @@ function SignUp() {
   const submitForm = (e) => {
     e.preventDefault()
 
-    const cookies = new Cookies();
-    cookies.set('auth_token', '12345', { 
-      path: '/',
-      // secure: true,
-      expires: new Date(Date.now()+10525920000)
-    });
+    // const cookies = new Cookies();
+    // cookies.set('auth_token', '12345', { 
+    //   path: '/',
+    //   // secure: true,
+    //   expires: new Date(Date.now()+10525920000)
+    // });
 
-    setFullname('');
-    setEmail('');
-    setPassword('');
+    // setFullname('');
+    // setEmail('');
+    // setPassword('');
 
-    console.log(cookies.get('auth_token'));
+    // console.log(cookies.get('auth_token'));
 
-    // axios.post(`${process.env.REACT_APP_URL}register`, {
-    //   email: email,
-    //   full_name: fullName,
-    //   password: password
-    // })
-    // .then(res => {
-    //   console.log(res);
-    //   setFullname('');
-    //   setEmail('');
-    //   setPassword('');
-    // })
-    // .catch(err => console.log(err));
+    axios.post(`${process.env.REACT_APP_URL}/register`, {
+      email: email,
+      full_name: fullName,
+      password: password
+    })
+    .then(res => {
+      console.log(res);
+      setFullname('');
+      setEmail('');
+      setPassword('');
+    })
+    .catch(err => console.log(err));
   }
 
   return (

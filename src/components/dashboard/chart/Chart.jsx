@@ -10,7 +10,7 @@ class Graph extends Component {
         id: "basic-bar"
       },
       xaxis: {
-        categories: [2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020]
+        categories: [2014, 2015, 2016, 2017, 2018, 2019, 2020]
       },
       markers: {
         size: 6
@@ -20,7 +20,7 @@ class Graph extends Component {
     series: [
       {
         name: "series-1",
-        data: [30, 40, 45, 50, 49, 60, 70, 91]
+        data: [40, 45, 41, 44, 30, 59, 70]
       }
     ]
   };
@@ -32,7 +32,7 @@ class Graph extends Component {
           <Chart
             options={this.state.options}
             series={this.state.series}
-            type="bar"
+            type="line"
             width="100%"
           />
       </div>

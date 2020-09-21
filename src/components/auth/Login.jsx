@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import "./Auth.scss";
 import Cookies from "universal-cookie";
-// import axios from "axios";
+import axios from "axios";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -14,32 +14,32 @@ function Login() {
 
     const cookies = new Cookies();
 
-    cookies.set("auth_token", "12345", {
-      path: "/",
-      expires: new Date(Date.now() + 10525920000),
-    });
+    // cookies.set("auth_token", "12345", {
+    //   path: "/",
+    //   expires: new Date(Date.now() + 10525920000),
+    // });
 
-    // axios
-    //   .post(`${process.env.REACT_APP_URL}login`, {
-    //     email: email,
-    //     password: password,
-    //   })
-    //   .then((res) => {
-    //     console.log(res);
-    //     setEmail("");
-    //     setPassword("");
+    axios
+      .post(`${process.env.REACT_APP_URL}/login`, {
+        email: email,
+        password: password,
+      })
+      .then((res) => {
+        console.log(res);
+        setEmail("");
+        setPassword("");
 
-    //     cookies.set("auth_token", "12345", {
-    //       path: "/",
-    //       expires: new Date(Date.now() + 10525920000),
-    //     });
-    //   })
-    //   .then(() => {
-    //     setLoginSuccess(true);
-    //   })
-    //   .catch((err) => console.log(err));
+        // cookies.set("auth_token", "12345", {
+        //   path: "/",
+        //   expires: new Date(Date.now() + 10525920000),
+        // });
+      })
+      // .then(() => {
+      //   setLoginSuccess(true);
+      // })
+      .catch((err) => console.log(err));
 
-    cookies.get('auth_token') ? setLoginSuccess(true) : setLoginSuccess(false);
+    cookies.get('auth_token') ? setLoginSuccess(false) : setLoginSuccess(false);
   };
 
   return (

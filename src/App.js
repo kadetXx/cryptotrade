@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import React, {useState} from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.scss';
 
 import ProtectedRoute from './ProtectedRoute'
@@ -11,14 +11,18 @@ import Dashboard from './components/dashboard/Dashboard'
 import Transactions from './components/transactions/Transactions'
 
 function App() {
+
   return (
     <div className="App">
       <Router>
+        <Switch>
         <Route exact path='/' component={Home} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/sign-up' component={SignUp} />
         <ProtectedRoute exact path='/dashboard' component={Dashboard} />
-        <ProtectedRoute exact path='/dashboard/transactions' component={Transactions} />
+        <ProtectedRoute path='/dashboard/transactions' component={Transactions} />
+        <ProtectedRoute component={Dashboard} />
+        </Switch>
       </Router>
     </div>
   );

@@ -49,9 +49,17 @@
       -moz-appearance: textfield;
     }
 
+    input:disabled {
+      background-color: transparent;
+    }
+
     small {
       font-size: 13px;
     }
+  }
+
+  label.disabled-input {
+    background-color: #d6d6d6;
   }
 
   label:focus-within {
