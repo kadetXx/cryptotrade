@@ -1,23 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import "./Auth.scss";
+import Alert from '../alert/Alert'
 import Cookies from "universal-cookie";
 import axios from "axios";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loginSuccess, setLoginSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
+
+  const cookies = new Cookies();
 
   const submitForm = (e) => {
     e.preventDefault();
-
-    const cookies = new Cookies();
-
-    // cookies.set("auth_token", "12345", {
-    //   path: "/",
-    //   expires: new Date(Date.now() + 10525920000),
-    // });
+    setLoading(true);
 
     axios
       .post(`${process.env.REACT_APP_URL}/login`, {
@@ -25,21 +24,29 @@ function Login() {
         password: password,
       })
       .then((res) => {
-        console.log(res);
         setEmail("");
         setPassword("");
 
-        // cookies.set("auth_token", "12345", {
-        //   path: "/",
-        //   expires: new Date(Date.now() + 10525920000),
-        // });
+        cookies.set("auth_token", `${res.data.token}`, {
+          path: "/",
+          expires: new Date(res.data.expiry)
+        });
       })
-      // .then(() => {
-      //   setLoginSuccess(true);
-      // })
-      .catch((err) => console.log(err));
-
-    cookies.get('auth_token') ? setLoginSuccess(false) : setLoginSuccess(false);
+      .then(() => {
+        if (cookies.get('auth_token')) {
+          setLoading(false);
+          setSuccess(true);
+        } else {
+          setLoading(false);
+          setError(true);
+        }
+        
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+        setError(true);
+      });
   };
 
   return (
@@ -74,15 +81,29 @@ function Login() {
               placeholder='Choose password'
               name='password'
               value={password}
-              onChange={(e) => setPassword(e.target.values)}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </label>
 
-          <input type='submit' className='button' value='Login' />
+          {!loading ? (
+            <input type='submit' className='button' value='Login' />
+          ) : (
+            <button className='button'>
+              <img
+                className='loader-img'
+                src='/assets/img/ajaxloader.gif'
+                alt=''
+              />
+            </button>
+          )}
         </form>
       </div>
 
-      {loginSuccess ? <Redirect to={{ pathname: '/dashboard'}} /> : '' }
+      {
+        error && <Alert icon='danger' title='An error occured' link='#' action={() => setError(false)} />
+      }
+
+      {success ? <Redirect to={{ pathname: '/dashboard'}} /> : '' }
     </div>
   );
 }

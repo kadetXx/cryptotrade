@@ -1,30 +1,22 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
 import "./Auth.scss";
-import Cookies from 'universal-cookie';
-import axios from 'axios'
+import Alert from '../alert/Alert'
+import axios from "axios";
 
 function SignUp() {
-  const [fullName, setFullname] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('')
+  const [fullName, setFullname] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false)
 
   const submitForm = (e) => {
-    e.preventDefault()
+    e.preventDefault();
+    setLoading(true);
 
-    // const cookies = new Cookies();
-    // cookies.set('auth_token', '12345', { 
-    //   path: '/',
-    //   // secure: true,
-    //   expires: new Date(Date.now()+10525920000)
-    // });
-
-    // setFullname('');
-    // setEmail('');
-    // setPassword('');
-
-    // console.log(cookies.get('auth_token'));
-
-    axios.post(`${process.env.REACT_APP_URL}/register`, {
+    axios.post(`${process.env.REACT_APP_URL}/register/`, {
       email: email,
       full_name: fullName,
       password: password
@@ -34,9 +26,16 @@ function SignUp() {
       setFullname('');
       setEmail('');
       setPassword('');
+      setLoading(false);
+      setSuccess(true)
     })
-    .catch(err => console.log(err));
-  }
+    .catch(err => {
+      console.log(err)
+      setError(true);
+      setLoading(false);
+    });
+
+  };
 
   return (
     <div id='sign-up'>
@@ -50,25 +49,66 @@ function SignUp() {
         <div className='title'>
           <h3>Create an account</h3>
         </div>
-        <form onSubmit={submitForm} >
+        <form onSubmit={submitForm}>
           <label>
             <span className='material-icons'>person</span>
-            <input required type='text' placeholder='Fullname' name='fullname' value={fullName} onChange={(e) => setFullname(e.target.value)} />
+            <input
+              required
+              type='text'
+              placeholder='Fullname'
+              name='fullname'
+              value={fullName}
+              onChange={(e) => setFullname(e.target.value)}
+            />
           </label>
 
           <label>
             <span className='material-icons'>mail</span>
-            <input required type='text' placeholder='Email' name='email' value={email} onChange={(e) => setEmail(e.target.value)} />
+            <input
+              required
+              type='text'
+              placeholder='Email'
+              name='email'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </label>
 
           <label>
             <span className='material-icons'>lock</span>
-            <input required minLength='6' type='password' placeholder='Choose password' name='password' value={password} onChange={(e) => setPassword(e.target.values)} />
+            <input
+              required
+              minLength='6'
+              type='password'
+              placeholder='Choose password'
+              name='password'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </label>
 
-          <input type="submit" className='button' value="Sign Up"/>
+          {!loading ? (
+            <input type='submit' className='button' value='Sign Up' />
+          ) : (
+            <button className='button'>
+              <img
+                className='loader-img'
+                src='/assets/img/ajaxloader.gif'
+                alt=''
+              />
+            </button>
+          )}
         </form>
       </div>
+
+      {
+        success && <Alert icon='success' title='Account Created' link='/login' action={() => setSuccess(false)} />
+      }
+
+      {
+        error && <Alert icon='danger' title='An error occured' link='#' action={() => setError(false)} />
+      }
+      
     </div>
   );
 }

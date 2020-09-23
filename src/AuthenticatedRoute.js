@@ -10,7 +10,7 @@ class ProtectedRoute extends Component {
     const isAthenticated = cookies.get('auth_token');
 
     return isAthenticated ? (
-      <Component />
+      <Component token={cookies.get('auth_token')} />
     ) : (
       <Redirect to={{ pathname: '/login' }} />
     )

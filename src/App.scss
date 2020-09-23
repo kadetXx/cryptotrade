@@ -18,6 +18,43 @@ button:focus {
   outline: none;
 }
 
+.loader {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.692);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  img {
+    max-width: 25%;
+  }
+}
+
+// .loader-img {
+//   animation-name: rotate;
+//   animation-duration: 1.5s;
+//   animation-timing-function: linear;
+//   animation-iteration-count: infinite;
+
+//   @keyframes rotate {
+//     // 0% {
+//     //   transform: rotate(0deg);
+//     // }
+
+//     100% {
+//       transform: rotate(360deg);
+//     }
+
+//     // 100% {
+//     //   transform: rotate();
+//     // }
+//   }
+// }
+
 
 button.primary {
   padding: .6rem 3rem;
