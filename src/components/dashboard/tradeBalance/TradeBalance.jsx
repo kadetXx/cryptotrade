@@ -4,7 +4,7 @@ import './TradeBalance.scss'
 const AcctBalance = () => {
   return (
     <div id='tradeBalance' className='box-wrapper'>
-      <h4>TRADE BALANCE</h4>
+      <h4>Trade Balance</h4>
       <div className='box trade-box'>
         <div className="left">
           <p>Your starter plan balance</p>

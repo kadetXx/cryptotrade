@@ -6,7 +6,7 @@ import { Progress } from 'antd';
 function TradeProgress() {
   return (
     <div id='tradeProgress' className='box-wrapper'>
-      <h4>TRADE PROGRESS</h4>
+      <h4>Trade Progress</h4>
       <div className='box'>
         <div className="top">
           <small>Start profit: $3.5</small>

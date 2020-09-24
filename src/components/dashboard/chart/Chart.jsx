@@ -20,7 +20,7 @@ class Graph extends Component {
     series: [
       {
         name: "series-1",
-        data: [40, 45, 41, 44, 30, 59, 70]
+        data: [0, 20, 31, 33, 28, 28, 30],
       }
     ]
   };

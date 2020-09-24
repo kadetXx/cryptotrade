@@ -1,32 +1,58 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import "./Layout.scss";
 
+import Cookies from "universal-cookie";
+import axios from "axios";
 import { Menu, Dropdown } from "antd";
 
 const Layout = ({ activeMenu, children }) => {
   const [sidebar, setSidebar] = useState(true);
   const [animate, setAnimate] = useState(false);
+  const [isLoggedout, setIsLoggedout] = useState(false)
 
   const menu = (
     <Menu>
       <Menu.Item>
-        <a target='_blank' rel='noopener noreferrer' href='https://'>
           English
-        </a>
-      </Menu.Item>
-      <Menu.Item>
-        <a target='_blank' rel='noopener noreferrer' href='https://'>
-          French
-        </a>
-      </Menu.Item>
-      <Menu.Item>
-        <a target='_blank' rel='noopener noreferrer' href='https://'>
-          Spanish
-        </a>
       </Menu.Item>
     </Menu>
   );
+
+  const cookies = new Cookies();
+  const authtoken = cookies.get('auth_token');
+  
+  const logout = () => {
+
+    axios
+      .post(`${process.env.REACT_APP_URL}/logout/`, {
+        headers: {
+          'Authorization': `Token ${authtoken}`
+        }
+      })
+      .then((res) => {
+        console.log(res); 
+        setIsLoggedout(true);
+        cookies.remove('auth_token')
+      })
+      .catch((err) => [console.log(err), setIsLoggedout(true)], cookies.remove('auth_token'));
+  }
+
+  const userMenu = (
+    <Menu>
+      <Menu.Item>
+        <Link to='/profile'>
+          Profile
+        </Link>
+      </Menu.Item>
+
+      <Menu.Item>
+        <Link to='#' onClick={logout}>
+          Logout
+        </Link>
+      </Menu.Item>
+    </Menu>
+  )
 
   return (
     <div id='layout'>
@@ -47,7 +73,7 @@ const Layout = ({ activeMenu, children }) => {
             </Link>
           </li>
           <li className={activeMenu === "wallet" ? "active" : ""}>
-            <Link to='/dashboard'>
+            <Link to='/dashboard/wallet'>
               <span className='material-icons'>account_balance_wallet</span> Wallet
             </Link>
           </li>
@@ -57,11 +83,11 @@ const Layout = ({ activeMenu, children }) => {
             </Link>
           </li>
           <li className={activeMenu === "profile" ? "active" : ""}>
-            <Link to='/dashboard'>
+            <Link to='/dashboard/profile'>
               <span className='material-icons'>person_outline</span> Profile
             </Link>
           </li>
-          <li className={activeMenu === "logout" ? "active" : ""}>
+          <li className={activeMenu === "logout" ? "active" : ""} onClick={logout}>
             <Link to='/dashboard'>
               <span className='material-icons'>exit_to_app</span>Logout
             </Link>
@@ -100,14 +126,20 @@ const Layout = ({ activeMenu, children }) => {
             </div>
 
             <div className='profile-summary'>
-              <img src='/assets/img/avatar.png' alt='avi' />
-              <p>$4</p>
+              <Dropdown overlay={userMenu} placement="bottomLeft">
+                <div style={{display: 'flex', alignItems: 'center'}}>
+                <img src='/assets/img/avatar.png' alt='avi' />
+                <p>$4</p>
+                </div>
+              </Dropdown>
             </div>
           </div>
         </header>
 
-        <div>{children}</div>
+        <div id='children'>{children}</div>
       </section>
+
+      {isLoggedout ? <Redirect to={{ pathname: '/'}} /> : '' }
     </div>
   );
 };

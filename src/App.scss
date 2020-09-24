@@ -14,9 +14,38 @@ body {
   box-sizing: border-box;
 }
 
+h1,h2,h3,h4,h5,h6 {
+  color: #464855;
+}
+
 button:focus {
   outline: none;
 }
+
+section.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2%;
+  margin-bottom: 1rem;
+
+  .title {
+    padding-right: 1.5rem;
+    border-right: 1px solid rgba(128, 128, 128, 0.473);
+    display: flex;
+    align-items: center;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 1.7rem;
+    font-weight: 400;
+    margin: 0;
+    position: relative;
+    top: -2px;
+  }
+}
+
 
 .loader {
   position: fixed;
@@ -67,6 +96,23 @@ button.primary {
 button.primary.small {
   padding: .3rem 1.5rem;
 }
+
+.ant-table {
+  background-color: transparent;
+}
+
+.ant-table-thead .ant-table-cell {
+  background-color: #11315e05
+}
+
+//remove form autofill background color
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+  box-shadow: 0 0 0 30px  #F4F5FA inset !important;
+-webkit-box-shadow: 0 0 0 30px  #F4F5FA inset !important;
+} 
 
 button.primary:hover {
   background-color: #e24c01;

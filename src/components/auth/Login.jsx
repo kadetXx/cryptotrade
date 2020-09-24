@@ -11,6 +11,7 @@ function Login() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
+  const [errMessage, setErrMessage] = useState('')
 
   const cookies = new Cookies();
 
@@ -27,12 +28,15 @@ function Login() {
         setEmail("");
         setPassword("");
 
+        console.log(res)
+
         cookies.set("auth_token", `${res.data.token}`, {
           path: "/",
           expires: new Date(res.data.expiry)
         });
       })
-      .then(() => {
+      .then((res) => {
+
         if (cookies.get('auth_token')) {
           setLoading(false);
           setSuccess(true);
@@ -43,8 +47,8 @@ function Login() {
         
       })
       .catch((err) => {
-        console.log(err);
         setLoading(false);
+        setErrMessage(err.response.data.non_field_errors)
         setError(true);
       });
   };
@@ -100,7 +104,7 @@ function Login() {
       </div>
 
       {
-        error && <Alert icon='danger' title='An error occured' link='#' action={() => setError(false)} />
+        error && <Alert icon='danger' title={errMessage} link='#' action={() => setError(false)} />
       }
 
       {success ? <Redirect to={{ pathname: '/dashboard'}} /> : '' }

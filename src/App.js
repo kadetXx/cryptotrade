@@ -1,6 +1,4 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom'
-import Cookies from 'universal-cookie';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.scss';
 
@@ -11,7 +9,9 @@ import Home from './components/homepage/Homepage'
 import Login from './components/auth/Login'
 import SignUp from './components/auth/SignUp'
 import Dashboard from './components/dashboard/Dashboard'
+import Wallet from './components/wallet/Wallet'
 import Transactions from './components/transactions/Transactions'
+import Profile from './components/profile/Profile'
 
 function App() {
 
@@ -27,7 +27,10 @@ function App() {
         <UnauthenticatedRoute path='/sign-up' component={SignUp} />
         
         <AuthenticatedRoute exact path='/dashboard' component={Dashboard} />
-        <AuthenticatedRoute path='/dashboard/transactions' component={Transactions} />
+        <AuthenticatedRoute exact path='/dashboard/wallet' component={Wallet} />
+        <AuthenticatedRoute exact path='/dashboard/transactions' component={Transactions} />
+        <AuthenticatedRoute exact path='/dashboard/profile' component={Profile} />
+    
         <AuthenticatedRoute component={Dashboard} />
         </Switch>
       </Router>
