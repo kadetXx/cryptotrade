@@ -35,7 +35,7 @@ function Login() {
           expires: new Date(res.data.expiry)
         });
       })
-      .then((res) => {
+      .then(() => {
 
         if (cookies.get('auth_token')) {
           setLoading(false);

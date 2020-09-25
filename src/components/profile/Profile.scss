@@ -113,6 +113,7 @@
             border: 1px solid #c4c4c4;
             justify-content: space-between;
             background-color: #e8f0fe;
+            border-radius: 0;
           }
 
           input {
@@ -141,12 +142,14 @@
         width: 100%; 
         display: flex;
         flex-direction: column;
+        align-items: center;
 
         input {
           flex-grow: 1;
           border: 1px solid #c4c4c4;
           margin: 10px 0;
           padding: .5rem;
+          width: 100%;
         }
 
         //remove form autofill background color
@@ -161,6 +164,12 @@
         input:focus {
           border-color: #006ed4;
           outline: none;
+        }
+
+        button {
+          width: fit-content;
+          text-align: center;
+          margin: 10px 0;
         }
       }
     }

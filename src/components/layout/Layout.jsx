@@ -41,7 +41,7 @@ const Layout = ({ activeMenu, children }) => {
   const userMenu = (
     <Menu>
       <Menu.Item>
-        <Link to='/profile'>
+        <Link to='/dashboard/profile'>
           Profile
         </Link>
       </Menu.Item>

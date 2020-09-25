@@ -5,8 +5,8 @@ import axios from "axios";
 
 const Calculator = () => {
   const [coin, setCoin] = useState("BTC");
-  const [amount, setAmount] = useState();
-  const [coinAmount, setCoinAmount] = useState();
+  const [amount, setAmount] = useState('');
+  const [coinAmount, setCoinAmount] = useState('');
   const [disableCoin, setDisableCoin] = useState(false);
   const [disableAmount, setDisableAmount] = useState(false);
 

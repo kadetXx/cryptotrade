@@ -142,6 +142,7 @@ function Profile() {
                 <input type="password" placeholder='Current Password' />
                 <input type="password" placeholder='New password' />
                 <input type="password" placeholder='Confirm new Password' />
+                <button type="submit"className='primary'>Submit</button>
               </form>
             </div>
           </section>
