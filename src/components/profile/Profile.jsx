@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import "./Profile.scss";
 import Layout from "../layout/Layout";
 
-import Alert from "../alert/Alert";
-
 function Profile() {
   const [full_name, setFullName] = useState("Local Host");
   const [email, setEmail] = useState("test@test.com");

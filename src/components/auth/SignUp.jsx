@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
 import "./Auth.scss";
 import Alert from '../alert/Alert'
 import axios from "axios";
