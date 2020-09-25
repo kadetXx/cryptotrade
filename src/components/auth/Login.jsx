@@ -20,7 +20,7 @@ function Login() {
     setLoading(true);
 
     axios
-      .post(`${process.env.REACT_APP_URL}/login`, {
+      .post(`${process.env.REACT_APP_API}/login`, {
         email: email,
         password: password,
       })

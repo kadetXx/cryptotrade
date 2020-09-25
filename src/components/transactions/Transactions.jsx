@@ -15,7 +15,7 @@ function Transactions({token}) {
  
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_URL}/transactions`, {
+      .get(`${process.env.REACT_APP_API}/transactions`, {
         headers: {
           'Authorization': `Token ${authtoken}`
         }

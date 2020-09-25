@@ -15,7 +15,7 @@ function SignUp() {
     e.preventDefault();
     setLoading(true);
 
-    axios.post(`${process.env.REACT_APP_URL}/register/`, {
+    axios.post(`${process.env.REACT_APP_API}/register/`, {
       email: email,
       full_name: fullName,
       password: password

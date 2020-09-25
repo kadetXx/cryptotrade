@@ -25,7 +25,7 @@ const Layout = ({ activeMenu, children }) => {
   const logout = () => {
 
     axios
-      .post(`${process.env.REACT_APP_URL}/logout/`, {
+      .post(`${process.env.REACT_APP_API}/logout/`, {
         headers: {
           'Authorization': `Token ${authtoken}`
         }
