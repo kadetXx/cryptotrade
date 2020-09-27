@@ -9,7 +9,7 @@ import Home from './components/homepage/Homepage'
 import Login from './components/auth/Login'
 import SignUp from './components/auth/SignUp'
 import Dashboard from './components/dashboard/Dashboard'
-import Wallet from './components/wallet/Wallet'
+import Deposit from './components/deposit/Deposit'
 import Transactions from './components/transactions/Transactions'
 import Profile from './components/profile/Profile'
 
@@ -27,7 +27,7 @@ function App() {
         <UnauthenticatedRoute path='/sign-up' component={SignUp} />
         
         <AuthenticatedRoute exact path='/dashboard' component={Dashboard} />
-        <AuthenticatedRoute exact path='/dashboard/wallet' component={Wallet} />
+        <AuthenticatedRoute exact path='/dashboard/deposit' component={Deposit} />
         <AuthenticatedRoute exact path='/dashboard/transactions' component={Transactions} />
         <AuthenticatedRoute exact path='/dashboard/profile' component={Profile} />
     

@@ -62,34 +62,40 @@ const Layout = ({ activeMenu, children }) => {
       >
         <div className='logo'>
           <h2>
-            <span className='material-icons'>security</span> Trddex
+          <span class="fas fa-warehouse"></span> Trddex
           </h2>
         </div>
 
         <ul>
           <li className={activeMenu === "dashboard" ? "active" : ""}>
             <Link to='/dashboard'>
-              <span className='material-icons'>dashboard</span> Dashboard
-            </Link>
-          </li>
-          <li className={activeMenu === "wallet" ? "active" : ""}>
-            <Link to='/dashboard/wallet'>
-              <span className='material-icons'>account_balance_wallet</span> Wallet
+              {/* <span className='material-icons'>dashboard</span>  */} 
+              {/* <span class="fas fa-tachometer-alt"></span> */}
+              Dashboard
             </Link>
           </li>
           <li className={activeMenu === "transactions" ? "active" : ""}>
             <Link to='/dashboard/transactions'>
-              <span className='material-icons'>receipt_long</span> Transactions
+              {/* <i class="fas fa-history"></i> */}
+              Transactions
             </Link>
           </li>
+          <li className={activeMenu === "deposit" ? "active" : ""}>
+            <Link to='/dashboard/deposit'>
+              {/* <span class="fas fa-money-check-alt"></span> */}
+              Deposit
+            </Link>
+          </li> 
           <li className={activeMenu === "profile" ? "active" : ""}>
             <Link to='/dashboard/profile'>
-              <span className='material-icons'>person_outline</span> Profile
+              {/* <i class="fas fa-user"></i> */}
+              Profile
             </Link>
           </li>
           <li className={activeMenu === "logout" ? "active" : ""} onClick={logout}>
             <Link to='/dashboard'>
-              <span className='material-icons'>exit_to_app</span>Logout
+              {/* <i class="fas fa-sign-out-alt"></i> */}
+              Logout
             </Link>
           </li>
         </ul>
@@ -119,9 +125,9 @@ const Layout = ({ activeMenu, children }) => {
               </Dropdown>
             </div>
 
-            <div className='shortcut'>
-              <Link to='/dashboard/wallet'>
-                <span className='material-icons'>account_balance_wallet</span>
+            <div className='shortcut' style={{width: '20px'}}>
+              <Link to='/dashboard/deposit'>
+                <span className='material-icons'  >account_balance_deposit</span>
               </Link>
             </div>
 

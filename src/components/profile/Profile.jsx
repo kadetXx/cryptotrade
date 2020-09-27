@@ -7,7 +7,7 @@ import axios from "axios";
 function Profile() {
   const [full_name, setFullName] = useState("Local Host");
   const [email, setEmail] = useState("test@test.com");
-  const [wallet, setWallet] = useState("");
+  const [deposit, setdeposit] = useState("");
   const [tradingCode, setTradingCode] = useState("TRD139824827");
   const [avatar, setAvatar] = useState('');
   const [editProfile, setEditProfile] = useState(false);
@@ -83,18 +83,18 @@ function Profile() {
                   </label>
                   <label>
                     <span>
-                      Wallet ID <b>:</b>{" "}
+                      deposit ID <b>:</b>{" "}
                     </span>
                     <input
                       type='text'
-                      name='wallet address'
-                      size={wallet.length || 3}
+                      name='deposit address'
+                      size={deposit.length || 3}
                       disabled={!editProfile}
-                      value={wallet}
+                      value={deposit}
                       placeholder='Not set'
-                      onChange={(e) => setWallet(e.target.value)}
+                      onChange={(e) => setdeposit(e.target.value)}
                     />
-                    {wallet.length < 5 && !editProfile && (
+                    {deposit.length < 5 && !editProfile && (
                       <span
                         className='material-icons'
                         style={{

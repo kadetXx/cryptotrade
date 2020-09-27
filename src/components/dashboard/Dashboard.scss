@@ -1,4 +1,4 @@
-#dashboard, #wallet {
+#dashboard, #deposit {
   section.top {
     display: flex;
     justify-content: space-between;
@@ -32,8 +32,7 @@
 
   section.transactions {
     padding: .8rem 1.5rem;
-    box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.158);
-    border-radius: 5px;
+    box-shadow: 0 1px 15px 1px rgba(62,57,107,.07);
     overflow-x: auto;
   }
 }
@@ -41,8 +40,8 @@
 .box {
   display: flex;
   padding: .8rem 1.5rem;
-  box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.158);
-  border-radius: 5px;
+  box-shadow: 0 1px 15px 1px rgba(62,57,107,.07);
+  border-radius: 3px;
   margin-bottom: 2rem;
 
   p {
