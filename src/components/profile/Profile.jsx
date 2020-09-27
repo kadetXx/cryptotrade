@@ -1,13 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Profile.scss";
+import Cookies from "universal-cookie";
 import Layout from "../layout/Layout";
+import axios from "axios";
 
 function Profile() {
   const [full_name, setFullName] = useState("Local Host");
   const [email, setEmail] = useState("test@test.com");
   const [wallet, setWallet] = useState("");
   const [tradingCode, setTradingCode] = useState("TRD139824827");
+  const [avatar, setAvatar] = useState('');
   const [editProfile, setEditProfile] = useState(false);
+
+  const cookies = new Cookies();
+  const authtoken = cookies.get('auth_token');
+  
+
+  useEffect(() => {
+    axios
+      .get(`${process.env.REACT_APP_API}/profile`, {
+        headers: {
+          'Authorization': `Token ${authtoken}`
+        }
+      })
+      .then((res) => {
+        console.log(res.data.data);
+        setFullName(res.data.data.full_name);
+        setEmail(res.data.data.email);
+        setTradingCode(res.data.data.trading_code);
+        setAvatar(res.data.data.image);
+      })
+      .catch((err) => console.log(err));
+
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <div id='profile'>
@@ -22,14 +48,14 @@ function Profile() {
           <section>
             <div className='box profile-box'>
               <div className='avi-container'>
-                <img src='/assets/img/avatar.png' alt='user' />
+                <img src='/assets/img/default.png' alt='user' />
               </div>
 
               <div className='form-container'>
                 <form className={editProfile ? "edit-mode" : ""}>
                   <label>
                     <span>
-                      Name <b>:</b>{" "}
+                      Name <b>:</b>
                     </span>
                     <input
                       type='text'

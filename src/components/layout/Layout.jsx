@@ -120,7 +120,7 @@ const Layout = ({ activeMenu, children }) => {
             </div>
 
             <div className='shortcut'>
-              <Link to='/dashboard'>
+              <Link to='/dashboard/wallet'>
                 <span className='material-icons'>account_balance_wallet</span>
               </Link>
             </div>
@@ -128,7 +128,7 @@ const Layout = ({ activeMenu, children }) => {
             <div className='profile-summary'>
               <Dropdown overlay={userMenu} placement="bottomLeft">
                 <div style={{display: 'flex', alignItems: 'center'}}>
-                <img src='/assets/img/avatar.png' alt='avi' />
+                <img src='/assets/img/default.png' alt='avi' />
                 <p>$4</p>
                 </div>
               </Dropdown>

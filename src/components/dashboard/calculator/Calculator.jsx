@@ -5,8 +5,8 @@ import axios from "axios";
 
 const Calculator = () => {
   const [coin, setCoin] = useState("BTC");
-  const [amount, setAmount] = useState('');
-  const [coinAmount, setCoinAmount] = useState('');
+  const [amount, setAmount] = useState("");
+  const [coinAmount, setCoinAmount] = useState("");
   const [disableCoin, setDisableCoin] = useState(false);
   const [disableAmount, setDisableAmount] = useState(false);
 
@@ -14,20 +14,17 @@ const Calculator = () => {
     setCoin(e.key);
   };
 
-  // const handleInputs = (e) = {
-
-  // }
 
   const calculate = () => {
     axios.get(`${process.env.REACT_APP_BTC_API}`).then((res) => {
       amount.length > 0 && coin === "BTC"
-        ? setCoinAmount((amount / res.data.rates.BTC).toString().slice(0, 8))
+        ? setCoinAmount((amount / res.data.rates.BTC).toFixed(5))
         : amount.length > 0 && coin === "ETH"
-        ? setCoinAmount((amount / res.data.rates.ETH).toString().slice(0, 8))
-        : amount.length <= 0 && coin === "BTC"
-        ? setAmount((coinAmount * res.data.rates.BTC).toString().slice(0, 8))
-        : amount.length <= 0 && coin === "ETH"
-        ? setAmount((coinAmount * res.data.rates.ETH).toString().slice(0, 8))
+        ? setCoinAmount((amount / res.data.rates.ETH).toFixed(5))
+        : coinAmount.length > 0 && coin === "BTC"
+        ? setAmount((coinAmount * res.data.rates.BTC).toFixed(5))
+        : coinAmount.length > 0 && coin === "ETH"
+        ? setAmount((coinAmount * res.data.rates.ETH).toFixed(5))
         : console.log(res.data);
     });
   };
@@ -64,8 +61,28 @@ const Calculator = () => {
             />
           </label>
 
+          <label className={disableAmount ? "disabled-input" : ""}>
+            <small>Amount of tokens</small>
+            <input
+              disabled={disableAmount}
+              type='number'
+              placeholder='Tokens'
+              value={amount}
+              onChange={(e) => [setAmount(e.target.value), handleAmountInput()]}
+              onKeyUp={(e) => [setAmount(e.target.value), handleAmountInput()]}
+            />
+          </label>
+
           <span className='material-icons'>sync_alt</span>
 
+          <Dropdown overlay={menu}>
+            <p>
+              {coin} <span className='material-icons'>unfold_more</span>
+            </p>
+          </Dropdown>
+        </div>
+
+        <div className='right'>
           <label className={disableCoin ? "disabled-input" : ""}>
             <small>{coin}</small>
             <input
@@ -81,26 +98,6 @@ const Calculator = () => {
                 setCoinAmount(e.target.value),
                 handleCoinInput(),
               ]}
-            />
-          </label>
-
-          <Dropdown overlay={menu}>
-            <p>
-              {coin} <span className='material-icons'>unfold_more</span>
-            </p>
-          </Dropdown>
-        </div>
-
-        <div className='right'>
-          <label className={disableAmount ? "disabled-input" : ""}>
-            <small>Amount of tokens</small>
-            <input
-              disabled={disableAmount}
-              type='number'
-              placeholder='Amount of tokens'
-              value={amount}
-              onChange={(e) => [setAmount(e.target.value), handleAmountInput()]}
-              onKeyUp={(e) => [setAmount(e.target.value), handleAmountInput()]}
             />
           </label>
 

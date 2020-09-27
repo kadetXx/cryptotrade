@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import Cookies from "universal-cookie";
+import axios from "axios";
 
 import { Table, Tag } from 'antd';
 
@@ -29,6 +31,23 @@ const columns = [
     title: 'Date',
     dataIndex: 'date',
     key: 'date',
+    render: (date) => (
+      <React.Fragment>
+        {
+          (() => {
+            let d = new Date(date);
+            let day = d.getDate();
+            let month = d.getMonth();
+            let year = d.getFullYear();
+      
+            if (month.length < 2) month = "0" + month;
+            if (day.length < 2) day = "0" + day;
+      
+            return [day, month, year].join('/');
+          })()
+        }
+      </React.Fragment>
+    )
   },
   {
     title: 'Type',
@@ -37,7 +56,7 @@ const columns = [
     render: type => (
       <>
         {type.map(tag => {
-          let color = tag === 'deposit' ? 'green' : 'volcano';
+          let color = tag === 'Deposit' ? 'green' : 'volcano';
           return (
             <Tag color={color} key={tag}>
               {tag.toUpperCase()}
@@ -86,41 +105,75 @@ const columns = [
   },
 ];
 
-const data = [
-  {
-    key: '1',
-    status: 'Pending',
-    date: '13.08/2020',
-    type: ['deposit'],
-    amount: '150',
-    currency: 'ETH',
-    coins: '0003'
-  },
-  {
-    key: '2',
-    status: 'Paid',
-    date: '13.08/2020',
-    type: ['deposit'],
-    amount: '250',
-    currency: 'BTC',
-    coins: '0.0004'
-  },
-  {
-    key: '3',
-    status: 'Paid',
-    date: '13.08/2020',
-    type: ['Withdrawal'],
-    amount: '150',
-    currency: 'BTC',
-    coins: '0.134'
-  },
-];
+// const data = [
+//   {
+//     key: '1',
+//     status: 'Pending',
+//     date: '13.08/2020',
+//     type: ['deposit'],
+//     amount: '150',
+//     currency: 'ETH',
+//     coins: '0003'
+//   },
+//   {
+//     key: '2',
+//     status: 'Paid',
+//     date: '13.08/2020',
+//     type: ['deposit'],
+//     amount: '250',
+//     currency: 'BTC',
+//     coins: '0.0004'
+//   },
+//   {
+//     key: '3',
+//     status: 'Paid',
+//     date: '13.08/2020',
+//     type: ['Withdrawal'],
+//     amount: '150',
+//     currency: 'BTC',
+//     coins: '0.134'
+//   },
+// ];
 
 
 function TransactionTable() {
+
+  const [transactions, setTransactions] = useState([]);
+
+  const cookies = new Cookies();
+  const authtoken = cookies.get("auth_token");
+
+  useEffect(() => {
+    axios
+      .get(`${process.env.REACT_APP_API}/user_transaction`, {
+        headers: {
+          Authorization: `Token ${authtoken}`,
+        },
+      })
+      .then((res) => {
+
+        console.log(res);
+
+        const table = res.data.map((item, index) => ({
+          key: index,
+          status: item.status,
+          date: item.date,
+          type: [item.transaction_type],
+          amount: item.amount,
+          currency: item.currency.slice(2, 5),
+          coins: item.amount,
+        }));
+
+        setTransactions(table)
+      })
+      .catch((err) => console.log(err));
+
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <div>
-      <Table columns={columns} dataSource={data} pagination={false} />
+      <Table columns={columns} dataSource={transactions} pagination={false} />
     </div>
   )
 }

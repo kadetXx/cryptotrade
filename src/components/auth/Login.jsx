@@ -28,8 +28,6 @@ function Login() {
         setEmail("");
         setPassword("");
 
-        console.log(res)
-
         cookies.set("auth_token", `${res.data.token}`, {
           path: "/",
           expires: new Date(res.data.expiry)
