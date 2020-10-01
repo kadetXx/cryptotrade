@@ -1,20 +1,35 @@
 #deposit {
   .top {
+    section {
+      width: 100% !important;
+    }
     .box {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 2rem;
 
+      @media(max-width: 600px) {
+        padding: 2rem 1rem;
+        flex-wrap: wrap;
+      }
+
       .left {
         display: flex;
         flex-grow: 1;
+        flex-wrap: wrap;
+
+        @media(max-width: 600px) {
+          width: 100%;
+        }
         
         .icon {
           display: flex;
           align-items: center;
           justify-content: center;
           width: 20%;
+
+          
 
           i {
             background-color: #FF5500;
@@ -26,20 +41,190 @@
             align-items: center;
             justify-content: center;
             border-radius: 100%;
+
+            @media(max-width: 600px) {
+              width: 30px;
+              height: 30px;
+              font-size: 1rem;
+            }
           }
         }
 
         .wrap {
           h2 {
             margin: 0;
+
+            @media(max-width: 600px) {
+              font-size: 1.5rem;
+            }
           }
 
           p {
             margin-bottom: 0;
             color: #BDC5D1;
+
+            @media(max-width: 600px) {
+              font-size: .8rem;
+            }
           }
         }
       }
+
+      .right {
+        padding-right: 10%;
+
+        @media(max-width: 600px) {
+          width: 100%;
+          justify-content: center;
+          display: flex;
+          padding: 1rem 0 0;
+
+          button {
+            padding: .3rem 1.5rem;
+          }
+        }
+
+      }
     }
+  }
+
+  .mid {
+
+    .bank-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      .section-one {
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @media(max-width: 795px) {
+          width: 100%;
+          margin-bottom: 1.5rem;
+        }
+
+        i {
+          font-size: 2rem;
+          padding: 0;
+          width: 100px;
+          height: 100px;
+          border-radius: 100%;
+          background-color: #efefef;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+
+      .section-two {
+        width: 58%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        @media(max-width: 795px) {
+          width: 100%;
+          margin-bottom: 1.5rem;
+        }
+
+        p:nth-child(1) {
+          font-size: 1rem;
+          font-weight: 500;
+          margin-bottom: 1rem;
+          text-align: center;
+        }
+
+        code {
+          font-size: 1.2rem;
+          margin-bottom: 1rem;
+          padding: .2rem 1rem;
+          background-color: #efefef;
+          font-weight: bold;
+          text-align: center;
+          margin: 0 1rem 1rem;
+
+          @media(max-width: 400px) {
+            font-size: .9rem;
+          }
+        }
+      }
+
+      .section-three {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 28%;
+        padding: 1rem;
+
+        @media(max-width: 795px) {
+          width: 100%;
+          margin-bottom: 1.5rem;
+        }
+
+        p {
+          padding: 0 5% .5rem;
+          font-weight: 500;
+          text-align: center;
+        }
+
+        img {
+          width: fit-content;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+#deposit-form {
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+
+  label {
+    width: 100%;
+    margin-bottom: 1rem;
+
+    p {
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+      height: 40px;
+      
+
+      i {
+        width: 50px;
+        height: 100%;
+        border: 1px solid #efefef;
+        background-color: #efefef;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      input {
+        width: 100%;
+        padding: .7rem;
+        height: 40px;
+        border: 1px solid #efefef;
+      }
+  
+      input:focus {
+        outline: none;
+      }
+    }
+
+    
   }
 }

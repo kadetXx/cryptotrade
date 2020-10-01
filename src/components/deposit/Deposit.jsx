@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Deposit.scss";
 import Layout from "../layout/Layout";
 
-import Table from './DepositTable'
+import Table from "./DepositTable";
+import Modal from "./DepositModal";
 
-function deposit() {
+function Deposit({showWallet, setShowWallet, toSend, setToSend}) {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <div id='deposit'>
       <Layout activeMenu='deposit'>
@@ -18,7 +21,9 @@ function deposit() {
           <section>
             <div className='box trade-box'>
               <div className='left'>
-                <div className="icon"><i class='fab fa-btc'></i></div>
+                <div className='icon'>
+                  <i className='fab fa-btc'></i>
+                </div>
                 <div className='wrap'>
                   <h2>Bitcoin</h2>
                   <p>All secured deposits are made in btc</p>
@@ -26,18 +31,39 @@ function deposit() {
               </div>
 
               <div className='right'>
-                <button className='primary'>Add money</button>
+                <button className='primary' onClick={() => setShowModal(true)}>
+                  Add money
+                </button>
               </div>
             </div>
           </section>
-
-          <section></section>
         </section>
 
-        <section className='calc'></section>
+        <section className='mid'>
+          {showWallet && (
+            <section>
+              <div className='box bank-box'>
+                <div className="section-one">
+                <i className='fab fa-btc'></i>
+                </div>
+
+                <div className="section-two">
+                  <p>Send {toSend} BTC to the wallet address below within 48hrs to complete deposit </p>
+                  <code> 1QC98SkTe9ye4B1tjPBPFPwtwKwKzG7ueg </code>
+                  <button className="primary">Copy to clipboard</button>
+                </div>
+
+                <div className="section-three">
+                  <p>You can also scan this QR code with preferred wallet to complete deposit</p>
+                  <img src="/assets/img/qrcode.png" alt="code"/>
+                </div>
+              </div>
+            </section>
+          )}
+        </section>
 
         <section className='transactions'>
-        <div
+          <div
             className='section-title'
             style={{ marginBottom: "10px", fontWeight: "100" }}
           >
@@ -53,9 +79,11 @@ function deposit() {
           </div>
           <Table />
         </section>
+
+        <Modal show={showModal} setShow={setShowModal} wallet={setShowWallet} toSend={setToSend} />
       </Layout>
     </div>
   );
 }
 
-export default deposit;
+export default Deposit;

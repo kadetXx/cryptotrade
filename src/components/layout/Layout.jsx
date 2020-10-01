@@ -62,7 +62,7 @@ const Layout = ({ activeMenu, children }) => {
       >
         <div className='logo'>
           <h2>
-          <span class="fas fa-warehouse"></span> Trddex
+          <span className="fas fa-warehouse"></span> Trddex
           </h2>
         </div>
 
@@ -70,31 +70,31 @@ const Layout = ({ activeMenu, children }) => {
           <li className={activeMenu === "dashboard" ? "active" : ""}>
             <Link to='/dashboard'>
               {/* <span className='material-icons'>dashboard</span>  */} 
-              {/* <span class="fas fa-tachometer-alt"></span> */}
+              {/* <span className="fas fa-tachometer-alt"></span> */}
               Dashboard
             </Link>
           </li>
           <li className={activeMenu === "transactions" ? "active" : ""}>
             <Link to='/dashboard/transactions'>
-              {/* <i class="fas fa-history"></i> */}
+              {/* <i className="fas fa-history"></i> */}
               Transactions
             </Link>
           </li>
           <li className={activeMenu === "deposit" ? "active" : ""}>
             <Link to='/dashboard/deposit'>
-              {/* <span class="fas fa-money-check-alt"></span> */}
+              {/* <span className="fas fa-money-check-alt"></span> */}
               Deposit
             </Link>
           </li> 
           <li className={activeMenu === "profile" ? "active" : ""}>
             <Link to='/dashboard/profile'>
-              {/* <i class="fas fa-user"></i> */}
+              {/* <i className="fas fa-user"></i> */}
               Profile
             </Link>
           </li>
           <li className={activeMenu === "logout" ? "active" : ""} onClick={logout}>
             <Link to='/dashboard'>
-              {/* <i class="fas fa-sign-out-alt"></i> */}
+              {/* <i className="fas fa-sign-out-alt"></i> */}
               Logout
             </Link>
           </li>
