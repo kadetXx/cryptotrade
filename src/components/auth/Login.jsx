@@ -70,7 +70,7 @@ function Login() {
             <input
               type='email'
               required
-              placeholder='Email'
+              placeholder='Your Email'
               name='email'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -82,7 +82,7 @@ function Login() {
             <input
               type='password'
               required
-              placeholder='Choose password'
+              placeholder='Your password'
               name='password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
