@@ -5,7 +5,7 @@ import Layout from "../layout/Layout";
 import Table from "./DepositTable";
 import Modal from "./DepositModal";
 
-function Deposit({showWallet, setShowWallet, toSend, setToSend}) {
+function Deposit({ showWallet, setShowWallet, toSend, setToSend }) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -43,19 +43,34 @@ function Deposit({showWallet, setShowWallet, toSend, setToSend}) {
           {showWallet && (
             <section>
               <div className='box bank-box'>
-                <div className="section-one">
-                <i className='fab fa-btc'></i>
+                <div className='section-one'>
+                  <i className='fab fa-btc'></i>
                 </div>
 
-                <div className="section-two">
-                  <p>Send {toSend} BTC to the wallet address below within 48hrs to complete deposit </p>
+                <div className='section-two'>
+                  <p>
+                    Send {toSend} BTC to the wallet address below within 48hrs
+                    to complete deposit{" "}
+                  </p>
                   <code> 1QC98SkTe9ye4B1tjPBPFPwtwKwKzG7ueg </code>
-                  <button className="primary">Copy to clipboard</button>
+
+                  <button
+                    className='primary'
+                    onClick={() => {
+                      navigator.clipboard.writeText('1QC98SkTe9ye4B1tjPBPFPwtwKwKzG7ueg');
+                      alert('Copied')
+                    }}
+                  >
+                    Copy to clipboard
+                  </button>
                 </div>
 
-                <div className="section-three">
-                  <p>You can also scan this QR code with preferred wallet to complete deposit</p>
-                  <img src="/assets/img/qrcode.png" alt="code"/>
+                <div className='section-three'>
+                  <p>
+                    You can also scan this QR code with preferred wallet to
+                    complete deposit
+                  </p>
+                  <img src='/assets/img/qrcode.png' alt='code' />
                 </div>
               </div>
             </section>
@@ -80,7 +95,12 @@ function Deposit({showWallet, setShowWallet, toSend, setToSend}) {
           <Table />
         </section>
 
-        <Modal show={showModal} setShow={setShowModal} wallet={setShowWallet} toSend={setToSend} />
+        <Modal
+          show={showModal}
+          setShow={setShowModal}
+          wallet={setShowWallet}
+          toSend={setToSend}
+        />
       </Layout>
     </div>
   );

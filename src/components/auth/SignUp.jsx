@@ -53,6 +53,7 @@ function SignUp() {
             <span className='material-icons'>person</span>
             <input
               required
+              minLength='2'
               type='text'
               placeholder='Fullname'
               name='fullname'
@@ -65,7 +66,7 @@ function SignUp() {
             <span className='material-icons'>mail</span>
             <input
               required
-              type='text'
+              type='email'
               placeholder='Email'
               name='email'
               value={email}

@@ -3,7 +3,6 @@ import Layout from "../layout/Layout";
 import "./Dashboard.scss";
 
 import TradeBalance from "./tradeBalance/TradeBalance";
-import TradeProgress from "./tradeProgress/TradeProgress";
 // import Chart from "./chart/Chart";
 import Calculator from "./calculator/Calculator";
 import TransactionTable from "./transactions/TransactionTable";

@@ -47,7 +47,7 @@ const Layout = ({ activeMenu, children }) => {
       </Menu.Item>
 
       <Menu.Item>
-        <Link to='#' onClick={logout}>
+        <Link to='/' onClick={logout}>
           Logout
         </Link>
       </Menu.Item>
@@ -93,7 +93,7 @@ const Layout = ({ activeMenu, children }) => {
             </Link>
           </li>
           <li className={activeMenu === "logout" ? "active" : ""} onClick={logout}>
-            <Link to='/dashboard'>
+            <Link to='/'>
               {/* <i className="fas fa-sign-out-alt"></i> */}
               Logout
             </Link>

@@ -66,10 +66,13 @@
         background-color: #11315e; //#FF5500;
         color: #fff;
         border-radius: 6px;
-        height: 50px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         img {
-          max-height: 120%;
+          max-height: 100%;
         }
       }
     }

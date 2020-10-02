@@ -68,7 +68,8 @@ function Login() {
           <label>
             <span className='material-icons'>mail</span>
             <input
-              type='text'
+              type='email'
+              required
               placeholder='Email'
               name='email'
               value={email}
@@ -80,6 +81,7 @@ function Login() {
             <span className='material-icons'>lock</span>
             <input
               type='password'
+              required
               placeholder='Choose password'
               name='password'
               value={password}

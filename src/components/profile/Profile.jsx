@@ -12,6 +12,11 @@ function Profile() {
   const [editProfile, setEditProfile] = useState(false);
   const [userID, setUserID] = useState(0);
 
+  const [resetProgress, setResetProgress] = useState(0);
+
+  const [resetToken, setResetToken] = useState("");
+  const [resetPass, setResetPass] = useState("");
+
   const cookies = new Cookies();
   const authtoken = cookies.get("auth_token");
 
@@ -44,16 +49,53 @@ function Profile() {
 
   const updateProfile = () => {
     const config = {
-      headers: {'Authorization': `Token ${authtoken}`}
-    }
+      headers: { Authorization: `Token ${authtoken}` },
+    };
 
-    const data = {email, full_name, password: 1234567}
+    const data = { email, full_name, password: 1234567 };
 
-    axios.put(`${process.env.REACT_APP_API}/edit_profile/${userID}`, data , config )
-    .then(res => {
-      console.log(res);
-      setEditProfile(false)
-    })
+    axios
+      .put(`${process.env.REACT_APP_API}/edit_profile/${userID}`, data, config)
+      .then((res) => {
+        console.log(res);
+        setEditProfile(false);
+      });
+  };
+
+  const getToken = () => {
+    const config = {
+      headers: { Authorization: `Token ${authtoken}` },
+    };
+
+    const data = { email: email };
+
+    axios
+      .post(`${process.env.REACT_APP_API}/api/password_reset/`, data, config)
+      .then((res) => {
+        console.log(res);
+        setResetProgress(1);
+      })
+      .catch((err) => console.log(err.response));
+  };
+
+  const confirmReset = () => {
+    const config = {
+      headers: { Authorization: `Token ${authtoken}` },
+    };
+
+    const data = { password: resetPass, token: resetToken };
+
+    axios
+      .post(
+        `${process.env.REACT_APP_API}/api/password_reset/confirm/`,
+        data,
+        config
+      )
+      .then((res) => {
+        console.log(res);
+        setResetProgress(0);
+      })
+      .catch((err) => console.log(err.response));
   };
 
   return (
@@ -69,7 +111,7 @@ function Profile() {
           <section>
             <div className='box profile-box'>
               <div className='avi-container'>
-                <img src='/assets/img/default.png' alt='user' />
+                <img src={avatar} alt='user' />
               </div>
 
               <div className='form-container'>
@@ -80,6 +122,7 @@ function Profile() {
                     </span>
                     <input
                       type='text'
+                      required
                       name='fullname'
                       size={full_name.length}
                       disabled={!editProfile}
@@ -93,7 +136,8 @@ function Profile() {
                       Email Address <b>:</b>{" "}
                     </span>
                     <input
-                      type='text'
+                      type='email'
+                      required
                       name='email'
                       size={email.length}
                       disabled={!editProfile}
@@ -177,20 +221,53 @@ function Profile() {
                     fontWeight: "400",
                     fontSize: "1.3rem",
                     padding: "1rem 0",
+                    textAlign: 'center'
                   }}
                 >
                   Change Password
                 </h4>
               </div>
 
-              <form>
-                <input type='password' placeholder='Current Password' />
-                <input type='password' placeholder='New password' />
-                <input type='password' placeholder='Confirm new Password' />
-                <button type='submit' className='primary'>
-                  Submit
-                </button>
-              </form>
+              {resetProgress === 0 && (
+                <form>
+                  <button
+                    type='button'
+                    className='primary'
+                    onClick={() => getToken()}
+                  >
+                    Get Reset Token
+                  </button>
+                </form>
+              )}
+
+              {resetProgress === 1 && (
+                <form autoComplete="new-password" onSubmit={() => confirmReset()}>
+                  <input
+                    type='text'
+                    required
+                    minlength="6"
+                    autoComplete="new-password"
+                    placeholder='Input token sent to your mail'
+                    value={resetToken}
+                    onChange={(e) => setResetToken(e.target.value)}
+                  />
+                  <input
+                    type='password'
+                    required
+                    minlength="6"
+                    autoComplete="new-password"
+                    placeholder='New password'
+                    value={resetPass}
+                    onChange={(e) => setResetPass(e.target.value)}
+                  />
+                  <button
+                    type='submit'
+                    className='primary'
+                  >
+                    Submit
+                  </button>
+                </form>
+              )}
             </div>
           </section>
         </section>
