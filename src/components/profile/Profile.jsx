@@ -7,24 +7,22 @@ import axios from "axios";
 function Profile() {
   const [full_name, setFullName] = useState("Local Host");
   const [email, setEmail] = useState("test@test.com");
-  const [deposit, setdeposit] = useState("");
   const [tradingCode, setTradingCode] = useState("TRD139824827");
-  const [avatar, setAvatar] = useState('');
+  const [avatar, setAvatar] = useState("");
   const [editProfile, setEditProfile] = useState(false);
+  const [userID, setUserID] = useState(0);
 
   const cookies = new Cookies();
-  const authtoken = cookies.get('auth_token');
-  
+  const authtoken = cookies.get("auth_token");
 
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_API}/profile`, {
         headers: {
-          'Authorization': `Token ${authtoken}`
-        }
+          Authorization: `Token ${authtoken}`,
+        },
       })
       .then((res) => {
-        console.log(res.data.data);
         setFullName(res.data.data.full_name);
         setEmail(res.data.data.email);
         setTradingCode(res.data.data.trading_code);
@@ -32,8 +30,31 @@ function Profile() {
       })
       .catch((err) => console.log(err));
 
+    axios
+      .get(`${process.env.REACT_APP_API}/user_id`, {
+        headers: {
+          Authorization: `Token ${authtoken}`,
+        },
+      })
+      .then((res) => setUserID(res.data))
+      .catch((err) => console.log(err.response));
+
     // eslint-disable-next-line
   }, []);
+
+  const updateProfile = () => {
+    const config = {
+      headers: {'Authorization': `Token ${authtoken}`}
+    }
+
+    const data = {email, full_name, password: 1234567}
+
+    axios.put(`${process.env.REACT_APP_API}/edit_profile/${userID}`, data , config )
+    .then(res => {
+      console.log(res);
+      setEditProfile(false)
+    })
+  };
 
   return (
     <div id='profile'>
@@ -81,7 +102,7 @@ function Profile() {
                       onChange={(e) => setEmail(e.target.value)}
                     />
                   </label>
-                  <label>
+                  {/* <label>
                     <span>
                       deposit ID <b>:</b>{" "}
                     </span>
@@ -106,7 +127,7 @@ function Profile() {
                         error_outline
                       </span>
                     )}
-                  </label>
+                  </label> */}
                   <label>
                     <span>
                       Trading Code <b>:</b>{" "}
@@ -115,7 +136,7 @@ function Profile() {
                       type='text'
                       name='trading code'
                       size={tradingCode.length}
-                      disabled={!editProfile}
+                      disabled
                       value={tradingCode}
                       placeholder={tradingCode}
                       onChange={(e) => setTradingCode(e.target.value)}
@@ -134,7 +155,7 @@ function Profile() {
                       <button
                         type='button'
                         className='secondary'
-                        onClick={(e) => setEditProfile(false)}
+                        onClick={(e) => updateProfile()}
                       >
                         Save Profile
                       </button>
@@ -163,10 +184,12 @@ function Profile() {
               </div>
 
               <form>
-                <input type="password" placeholder='Current Password' />
-                <input type="password" placeholder='New password' />
-                <input type="password" placeholder='Confirm new Password' />
-                <button type="submit"className='primary'>Submit</button>
+                <input type='password' placeholder='Current Password' />
+                <input type='password' placeholder='New password' />
+                <input type='password' placeholder='Confirm new Password' />
+                <button type='submit' className='primary'>
+                  Submit
+                </button>
               </form>
             </div>
           </section>

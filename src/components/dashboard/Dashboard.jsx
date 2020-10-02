@@ -15,11 +15,6 @@ const Dashboard = () => {
         <section className='top'>
           <section>
             <TradeBalance />
-            {/* <Chart /> */}
-          </section>
-
-          <section>
-            <TradeProgress />
           </section>
         </section>
 
