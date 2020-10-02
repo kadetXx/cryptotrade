@@ -1,5 +1,6 @@
 import React from "react";
-import './Homepage.scss';
+import { Link } from "react-router-dom";
+import "./Homepage.scss";
 
 function Homepage() {
   return (
@@ -9,7 +10,7 @@ function Homepage() {
           <div className='row justify-content-center'>
             <div className='col-xl-11 d-flex align-items-center'>
               <h1 className='logo mr-auto'>
-                <a href='index.html'>BizPage</a>
+                <a href='index.html'>Trddex</a>
               </h1>
 
               {/* Uncomment below if you prefer to use an image logo */}
@@ -18,11 +19,11 @@ function Homepage() {
               <nav className='nav-menu d-none d-lg-block'>
                 <ul>
                   <li className='active'>
-                    <a href='index.html'>Home</a>
+                    <Link to='/login'>Login</Link>
                   </li>
 
                   <li>
-                    <a href='#contact'>Contact Us</a>
+                    <Link to='/sign-up'>Create Account</Link>
                   </li>
                 </ul>
               </nav>
@@ -46,7 +47,9 @@ function Homepage() {
             <div className='carousel-inner' role='listbox'>
               <div
                 className='carousel-item active'
-                style={{backgroundImage: "url(assets/img/intro-carousel/1.jpg)"}}
+                style={{
+                  backgroundImage: "url(assets/img/intro-carousel/1.jpg)",
+                }}
               >
                 <div className='carousel-container'>
                   <div className='container'>
@@ -71,7 +74,9 @@ function Homepage() {
 
               <div
                 className='carousel-item'
-                style={{backgroundImage: "url(assets/img/intro-carousel/2.jpg)"}}
+                style={{
+                  backgroundImage: "url(assets/img/intro-carousel/2.jpg)",
+                }}
               >
                 <div className='carousel-container'>
                   <div className='container'>
@@ -97,7 +102,9 @@ function Homepage() {
 
               <div
                 className='carousel-item'
-                style={{backgroundImage: "url(assets/img/intro-carousel/3.jpg)"}}
+                style={{
+                  backgroundImage: "url(assets/img/intro-carousel/3.jpg)",
+                }}
               >
                 <div className='carousel-container'>
                   <div className='container'>
@@ -123,7 +130,9 @@ function Homepage() {
 
               <div
                 className='carousel-item'
-                style={{backgroundImage: "url(assets/img/intro-carousel/4.jpg)"}}
+                style={{
+                  backgroundImage: "url(assets/img/intro-carousel/4.jpg)",
+                }}
               >
                 <div className='carousel-container'>
                   <div className='container'>
@@ -153,47 +162,6 @@ function Homepage() {
       {/* End Intro Section */}
 
       <main id='main'>
-        {/* ======= Featured Services Section Section ======= */}
-        <section id='featured-services'>
-          <div className='container'>
-            <div className='row'>
-              <div className='col-lg-4 box'>
-                <i className='ion-ios-bookmarks-outline'></i>
-                <h4 className='title'>
-                  <a href='/'>Lorem Ipsum Delino</a>
-                </h4>
-                <p className='description'>
-                  Voluptatum deleniti atque corrupti quos dolores et quas
-                  molestias excepturi sint occaecati cupiditate non provident
-                </p>
-              </div>
-
-              <div className='col-lg-4 box box-bg'>
-                <i className='ion-ios-stopwatch-outline'></i>
-                <h4 className='title'>
-                  <a href='/'>Dolor Sitema</a>
-                </h4>
-                <p className='description'>
-                  Minim veniam, quis nostrud exercitation ullamco laboris nisi
-                  ut aliquip ex ea commodo consequat tarad limino ata
-                </p>
-              </div>
-
-              <div className='col-lg-4 box'>
-                <i className='ion-ios-heart-outline'></i>
-                <h4 className='title'>
-                  <a href='/'>Sed ut perspiciatis</a>
-                </h4>
-                <p className='description'>
-                  Duis aute irure dolor in reprehenderit in voluptate velit esse
-                  cillum dolore eu fugiat nulla pariatur
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-        {/* End Featured Services Section */}
-
         {/* ======= About Us Section ======= */}
         <section id='about'>
           <div className='container' data-aos='fade-up'>
@@ -284,121 +252,6 @@ function Homepage() {
         </section>
         {/* End About Us Section */}
 
-        {/* ======= Services Section ======= */}
-        <section id='services'>
-          <div className='container' data-aos='fade-up'>
-            <header className='section-header wow fadeInUp'>
-              <h3>Services</h3>
-              <p>
-                Laudem latine persequeris id sed, ex fabulas delectus quo. No
-                vel partiendo abhorreant vituperatoribus, ad pro quaestio
-                laboramus. Ei ubique vivendum pro. At ius nisl accusam lorenta
-                zanos paradigno tridexa panatarel.
-              </p>
-            </header>
-
-            <div className='row'>
-              <div
-                className='col-lg-4 col-md-6 box'
-                data-aos='fade-up'
-                data-aos-delay='100'
-              >
-                <div className='icon'>
-                  <i className='ion-ios-analytics-outline'></i>
-                </div>
-                <h4 className='title'>
-                  <a href='/'>Lorem Ipsum</a>
-                </h4>
-                <p className='description'>
-                  Voluptatum deleniti atque corrupti quos dolores et quas
-                  molestias excepturi sint occaecati cupiditate non provident
-                </p>
-              </div>
-              <div
-                className='col-lg-4 col-md-6 box'
-                data-aos='fade-up'
-                data-aos-delay='200'
-              >
-                <div className='icon'>
-                  <i className='ion-ios-bookmarks-outline'></i>
-                </div>
-                <h4 className='title'>
-                  <a href='/'>Dolor Sitema</a>
-                </h4>
-                <p className='description'>
-                  Minim veniam, quis nostrud exercitation ullamco laboris nisi
-                  ut aliquip ex ea commodo consequat tarad limino ata
-                </p>
-              </div>
-              <div
-                className='col-lg-4 col-md-6 box'
-                data-aos='fade-up'
-                data-aos-delay='300'
-              >
-                <div className='icon'>
-                  <i className='ion-ios-paper-outline'></i>
-                </div>
-                <h4 className='title'>
-                  <a href='/'>Sed ut perspiciatis</a>
-                </h4>
-                <p className='description'>
-                  Duis aute irure dolor in reprehenderit in voluptate velit esse
-                  cillum dolore eu fugiat nulla pariatur
-                </p>
-              </div>
-              <div
-                className='col-lg-4 col-md-6 box'
-                data-aos='fade-up'
-                data-aos-delay='200'
-              >
-                <div className='icon'>
-                  <i className='ion-ios-speedometer-outline'></i>
-                </div>
-                <h4 className='title'>
-                  <a href='/'>Magni Dolores</a>
-                </h4>
-                <p className='description'>
-                  Excepteur sint occaecat cupidatat non proident, sunt in culpa
-                  qui officia deserunt mollit anim id est laborum
-                </p>
-              </div>
-              <div
-                className='col-lg-4 col-md-6 box'
-                data-aos='fade-up'
-                data-aos-delay='300'
-              >
-                <div className='icon'>
-                  <i className='ion-ios-barcode-outline'></i>
-                </div>
-                <h4 className='title'>
-                  <a href='/'>Nemo Enim</a>
-                </h4>
-                <p className='description'>
-                  At vero eos et accusamus et iusto odio dignissimos ducimus qui
-                  blanditiis praesentium voluptatum deleniti atque
-                </p>
-              </div>
-              <div
-                className='col-lg-4 col-md-6 box'
-                data-aos='fade-up'
-                data-aos-delay='400'
-              >
-                <div className='icon'>
-                  <i className='ion-ios-people-outline'></i>
-                </div>
-                <h4 className='title'>
-                  <a href='/'>Eiusmod Tempor</a>
-                </h4>
-                <p className='description'>
-                  Et harum quidem rerum facilis est et expedita distinctio. Nam
-                  libero tempore, cum soluta nobis est eligendi
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-        {/* End Services Section */}
-
         {/* ======= Call To Action Section ======= */}
         <section id='call-to-action'>
           <div className='container text-center' data-aos='zoom-in'>
@@ -416,7 +269,6 @@ function Homepage() {
           </div>
         </section>
         {/* End Call To Action Section */}
-
 
         {/* ======= Facts Section ======= */}
         <section id='facts'>
@@ -461,169 +313,6 @@ function Homepage() {
           </div>
         </section>
         {/* End Facts Section */}
-
-
-        {/* ======= Our Clients Section ======= */}
-        <section id='clients'>
-          <div className='container' data-aos='zoom-in'>
-            <header className='section-header'>
-              <h3>Our Clients</h3>
-            </header>
-
-            <div className='owl-carousel clients-carousel'>
-              <img src='assets/img/clients/client-1.png' alt='' />
-              <img src='assets/img/clients/client-2.png' alt='' />
-              <img src='assets/img/clients/client-3.png' alt='' />
-              <img src='assets/img/clients/client-4.png' alt='' />
-              <img src='assets/img/clients/client-5.png' alt='' />
-              <img src='assets/img/clients/client-6.png' alt='' />
-              <img src='assets/img/clients/client-7.png' alt='' />
-              <img src='assets/img/clients/client-8.png' alt='' />
-            </div>
-          </div>
-        </section>
-        {/* End Our Clients Section */}
-
-        {/* ======= Testimonials Section ======= */}
-        <section id='testimonials' className='section-bg'>
-          <div className='container' data-aos='fade-up'>
-            <header className='section-header'>
-              <h3>Testimonials</h3>
-            </header>
-
-            <div className='owl-carousel testimonials-carousel'>
-              <div className='testimonial-item'>
-                <img
-                  src='assets/img/testimonial-1.jpg'
-                  className='testimonial-img'
-                  alt=''
-                />
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
-                <p>
-                  <img
-                    src='assets/img/quote-sign-left.png'
-                    className='quote-sign-left'
-                    alt=''
-                  />
-                  Proin iaculis purus consequat sem cure digni ssim donec
-                  porttitora entum suscipit rhoncus. Accusantium quam, ultricies
-                  eget id, aliquam eget nibh et. Maecen aliquam, risus at
-                  semper.
-                  <img
-                    src='assets/img/quote-sign-right.png'
-                    className='quote-sign-right'
-                    alt=''
-                  />
-                </p>
-              </div>
-
-              <div className='testimonial-item'>
-                <img
-                  src='assets/img/testimonial-2.jpg'
-                  className='testimonial-img'
-                  alt=''
-                />
-                <h3>Sara Wilsson</h3>
-                <h4>Designer</h4>
-                <p>
-                  <img
-                    src='assets/img/quote-sign-left.png'
-                    className='quote-sign-left'
-                    alt=''
-                  />
-                  Export tempor illum tamen malis malis eram quae irure esse
-                  labore quem cillum quid cillum eram malis quorum velit fore
-                  eram velit sunt aliqua noster fugiat irure amet legam anim
-                  culpa.
-                  <img
-                    src='assets/img/quote-sign-right.png'
-                    className='quote-sign-right'
-                    alt=''
-                  />
-                </p>
-              </div>
-
-              <div className='testimonial-item'>
-                <img
-                  src='assets/img/testimonial-3.jpg'
-                  className='testimonial-img'
-                  alt=''
-                />
-                <h3>Jena Karlis</h3>
-                <h4>Store Owner</h4>
-                <p>
-                  <img
-                    src='assets/img/quote-sign-left.png'
-                    className='quote-sign-left'
-                    alt=''
-                  />
-                  Enim nisi quem export duis labore cillum quae magna enim sint
-                  quorum nulla quem veniam duis minim tempor labore quem eram
-                  duis noster aute amet eram fore quis sint minim.
-                  <img
-                    src='assets/img/quote-sign-right.png'
-                    className='quote-sign-right'
-                    alt=''
-                  />
-                </p>
-              </div>
-
-              <div className='testimonial-item'>
-                <img
-                  src='assets/img/testimonial-4.jpg'
-                  className='testimonial-img'
-                  alt=''
-                />
-                <h3>Matt Brandon</h3>
-                <h4>Freelancer</h4>
-                <p>
-                  <img
-                    src='assets/img/quote-sign-left.png'
-                    className='quote-sign-left'
-                    alt=''
-                  />
-                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa
-                  multos export minim fugiat minim velit minim dolor enim duis
-                  veniam ipsum anim magna sunt elit fore quem dolore labore
-                  illum veniam.
-                  <img
-                    src='assets/img/quote-sign-right.png'
-                    className='quote-sign-right'
-                    alt=''
-                  />
-                </p>
-              </div>
-
-              <div className='testimonial-item'>
-                <img
-                  src='assets/img/testimonial-5.jpg'
-                  className='testimonial-img'
-                  alt=''
-                />
-                <h3>John Larson</h3>
-                <h4>Entrepreneur</h4>
-                <p>
-                  <img
-                    src='assets/img/quote-sign-left.png'
-                    className='quote-sign-left'
-                    alt=''
-                  />
-                  Quis quorum aliqua sint quem legam fore sunt eram irure aliqua
-                  veniam tempor noster veniam enim culpa labore duis sunt culpa
-                  nulla illum cillum fugiat legam esse veniam culpa fore nisi
-                  cillum quid.
-                  <img
-                    src='assets/img/quote-sign-right.png'
-                    className='quote-sign-right'
-                    alt=''
-                  />
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-        {/* End Testimonials Section */}
 
         {/* ======= Team Section ======= */}
         <section id='team'>
@@ -881,8 +570,8 @@ function Homepage() {
         <div className='footer-top'>
           <div className='container'>
             <div className='row'>
-              <div className='col-lg-3 col-md-6 footer-info'>
-                <h3>BizPage</h3>
+              <div className='col-lg-6 col-md-6 footer-info'>
+                <h3>Trddex</h3>
                 <p>
                   Cras fermentum odio eu feugiat lide par naso tierra. Justo
                   eget nada terra videa magna derita valies darta donna mare
@@ -892,32 +581,7 @@ function Homepage() {
                 </p>
               </div>
 
-              <div className='col-lg-3 col-md-6 footer-links'>
-                <h4>Useful Links</h4>
-                <ul>
-                  <li>
-                    <i className='ion-ios-arrow-right'></i> <a href='/'>Home</a>
-                  </li>
-                  <li>
-                    <i className='ion-ios-arrow-right'></i>{" "}
-                    <a href='/'>About us</a>
-                  </li>
-                  <li>
-                    <i className='ion-ios-arrow-right'></i>{" "}
-                    <a href='/'>Services</a>
-                  </li>
-                  <li>
-                    <i className='ion-ios-arrow-right'></i>{" "}
-                    <a href='/'>Terms of service</a>
-                  </li>
-                  <li>
-                    <i className='ion-ios-arrow-right'></i>{" "}
-                    <a href='/'>Privacy policy</a>
-                  </li>
-                </ul>
-              </div>
-
-              <div className='col-lg-3 col-md-6 footer-contact'>
+              <div className='col-lg-6 col-md-6 footer-contact'>
                 <h4>Contact Us</h4>
                 <p>
                   A108 Adam Street <br />
@@ -930,7 +594,7 @@ function Homepage() {
                   <br />
                 </p>
 
-                <div className='social-links'>
+                {/* <div className='social-links'>
                   <a href='/' className='twitter'>
                     <i className='fa fa-twitter'></i>
                   </a>
@@ -946,21 +610,7 @@ function Homepage() {
                   <a href='/' className='linkedin'>
                     <i className='fa fa-linkedin'></i>
                   </a>
-                </div>
-              </div>
-
-              <div className='col-lg-3 col-md-6 footer-newsletter'>
-                <h4>Our Newsletter</h4>
-                <p>
-                  Tamen quem nulla quae legam multos aute sint culpa legam
-                  noster magna veniam enim veniam illum dolore legam minim
-                  quorum culpa amet magna export quem marada parida nodela
-                  caramase seza.
-                </p>
-                <form action='' method='post'>
-                  <input type='email' name='email' />
-                  <input type='submit' value='Subscribe' />
-                </form>
+                </div> */}
               </div>
             </div>
           </div>
@@ -968,21 +618,12 @@ function Homepage() {
 
         <div className='container'>
           <div className='copyright'>
-            &copy; Copyright <strong>BizPage</strong>. All Rights Reserved
-          </div>
-          <div className='credits'>
-            {/*
-        All the links in the footer should remain intact.
-        You can delete the links only if you purchased the pro version.
-        Licensing information: https://bootstrapmade.com/license/
-        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=BizPage
-      */}
-            Designed by <a href='https://bootstrapmade.com/'>BootstrapMade</a>
+            &copy; Copyright <strong>Trddex</strong>. All Rights Reserved
           </div>
         </div>
       </footer>
       {/* End Footer */}
-      <br />
+
       {/* </div> */}
     </div>
   );

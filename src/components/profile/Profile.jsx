@@ -111,6 +111,7 @@ function Profile() {
           <section>
             <div className='box profile-box'>
               <div className='avi-container'>
+                <img src={avatar} alt="avi" style={{display: 'none'}} />
                 <img src='/assets/img/default.png' alt='user' />
               </div>
 
