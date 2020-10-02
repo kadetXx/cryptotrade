@@ -54,7 +54,7 @@ function Homepage() {
                 <div className='carousel-container'>
                   <div className='container'>
                     <h2 className='animate__animated animate__fadeInDown'>
-                      We are professional
+                      We are professionals
                     </h2>
                     <p className='animate__animated animate__fadeInUp'>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
