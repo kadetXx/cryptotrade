@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import "./Auth.scss";
 import Alert from '../alert/Alert'
 import Cookies from "universal-cookie";
@@ -101,6 +101,7 @@ function Login() {
             </button>
           )}
         </form>
+        <p className="info">Don't have an account? <Link to='/sign-up'>Sign Up</Link></p>
       </div>
 
       {

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom'
 import "./Auth.scss";
 import Alert from '../alert/Alert'
 import axios from "axios";
@@ -99,6 +100,7 @@ function SignUp() {
             </button>
           )}
         </form>
+        <p className="info">Already have an account? <Link to='/login'>Login</Link></p>
       </div>
 
       {

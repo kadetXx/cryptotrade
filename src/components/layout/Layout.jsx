@@ -135,7 +135,6 @@ const Layout = ({ activeMenu, children }) => {
               <Dropdown overlay={userMenu} placement="bottomLeft">
                 <div style={{display: 'flex', alignItems: 'center'}}>
                 <img src='/assets/img/default.png' alt='avi' />
-                <p>$4</p>
                 </div>
               </Dropdown>
             </div>
