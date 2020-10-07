@@ -164,7 +164,7 @@ function TransactionTable() {
           coins: item.amount,
         }));
 
-        setTransactions(table)
+        setTransactions(table.slice(0, 15))
       })
       .catch((err) => console.log(err));
 

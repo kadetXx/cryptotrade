@@ -5,16 +5,21 @@ import "./Homepage.scss";
 function Homepage() {
   return (
     <div id='homepage'>
-      <header id='header' className='fixed-top header-transparent'>
+      <header id='header' className='header-transparent' style={{background: '#11315E', padding: '15px 0'}}>
         <div className='container-fluid'>
           <div className='row justify-content-center'>
             <div className='col-xl-11 d-flex align-items-center'>
-              <h1 className='logo mr-auto'>
+              {/* <h1 className='logo mr-auto'>
                 <a href='index.html'>Trddex</a>
-              </h1>
+              </h1> */}
 
-              {/* Uncomment below if you prefer to use an image logo */}
-              {/* <a href="index.html" className="logo mr-auto"><img src="assets/img/logo.png" alt="" className="img-fluid" /></a>*/}
+              <a href='index.html' className='logo mr-auto'>
+                <img
+                  src='/assets/img/trddexlogo.png'
+                  alt=''
+                  className='img-fluid'
+                />
+              </a>
 
               <nav className='nav-menu d-lg-block'>
                 <ul>
@@ -571,7 +576,15 @@ function Homepage() {
           <div className='container'>
             <div className='row'>
               <div className='col-lg-6 col-md-6 footer-info'>
-                <h3>Trddex</h3>
+                {/* <h3>Trddex</h3> */}
+                <a href='index.html' className='logo mr-auto'>
+                  <img
+                    src='/assets/img/trddexlogo.png'
+                    alt=''
+                    className='img-fluid'
+                    style={{maxWidth: '40%', position: 'relative', left: '-20px', marginBottom: '15px'}}
+                  />
+                </a>
                 <p>
                   Cras fermentum odio eu feugiat lide par naso tierra. Justo
                   eget nada terra videa magna derita valies darta donna mare
