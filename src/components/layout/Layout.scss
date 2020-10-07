@@ -27,11 +27,15 @@
       span {
         margin-right: 10px;
       }
+
+      img {
+        max-width: 90%;
+      }
     }
 
     ul {
       list-style: none;
-      margin: 5rem 0;
+      margin: 3rem 0;
       display: flex;
       flex-direction: column;
       padding: 0;
@@ -39,7 +43,7 @@
 
     li {
       font-size: 1.2rem;
-      margin-bottom: 1.7rem;
+      margin-bottom: 1rem;
       width: 100%;
       padding: .8rem 20px;
 
@@ -148,7 +152,7 @@
         display: block;
         position: absolute;
         left: 200px;
-        bottom: 50px;
+        bottom: 20%;
         background-color: #11315e;
         border: none;
         display: flex;
@@ -195,6 +199,11 @@
         }
         button:focus {
           outline: none;
+        }
+
+        img {
+          max-height: 90%;
+          max-width: 100%;
         }
       }
 

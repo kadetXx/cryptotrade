@@ -61,9 +61,7 @@ const Layout = ({ activeMenu, children }) => {
         className={animate ? "animate" : ''}
       >
         <div className='logo'>
-          <h2>
-          <span className="fas fa-warehouse"></span> Trddex
-          </h2>
+          <img src="/assets/img/trddexlogo.png" alt="Trddex logo"/>
         </div>
 
         <ul>
@@ -110,6 +108,7 @@ const Layout = ({ activeMenu, children }) => {
           <div className='left'>
             <button onClick={() => [setSidebar(!sidebar), setAnimate(true)]}>
               <span className='material-icons'>menu</span>
+              {/* <img src="/assets/img/trddexlogo.png" alt="trddex"/> */}
             </button>
           </div>
 

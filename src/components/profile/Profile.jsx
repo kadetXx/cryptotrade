@@ -134,7 +134,7 @@ function Profile() {
                   </label>
                   <label>
                     <span>
-                      Email Address <b>:</b>{" "}
+                      Email<b>:</b>{" "}
                     </span>
                     <input
                       type='email'
