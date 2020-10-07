@@ -16,7 +16,7 @@ function Homepage() {
               {/* Uncomment below if you prefer to use an image logo */}
               {/* <a href="index.html" className="logo mr-auto"><img src="assets/img/logo.png" alt="" className="img-fluid" /></a>*/}
 
-              <nav className='nav-menu d-none d-lg-block'>
+              <nav className='nav-menu d-lg-block'>
                 <ul>
                   <li className='active'>
                     <Link to='/login'>Login</Link>
