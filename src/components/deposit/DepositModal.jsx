@@ -36,7 +36,7 @@ function DepositModal({ show, setShow, wallet, toSend }) {
   const calculate = (e) => {
     axios
       .get(
-        `${process.env.REACT_APP_EXCHANGE}`, {
+        `https://cors-anywhere.herokuapp.com/${process.env.REACT_APP_EXCHANGE}`, {
           headers: {
             crossorigin:true,
             "Access-Control-Allow-Origin": "*"
