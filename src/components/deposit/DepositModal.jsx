@@ -36,7 +36,11 @@ function DepositModal({ show, setShow, wallet, toSend }) {
   const calculate = (e) => {
     axios
       .get(
-        `${process.env.REACT_APP_EXCHANGE}`
+        `${process.env.REACT_APP_EXCHANGE}`, {
+          headers: {
+            crossorigin:true
+          },
+        }
       )
       .then((res) => {
         console.log(res.data);

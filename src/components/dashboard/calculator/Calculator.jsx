@@ -16,7 +16,11 @@ const Calculator = () => {
 
   const calculate = () => {
     axios
-      .get(`${process.env.REACT_APP_EXCHANGE}`)
+      .get(`${process.env.REACT_APP_EXCHANGE}`, {
+        headers: {
+          crossorigin:true
+        },
+      })
       .then((res) => {
         console.log(res);
         amount.length > 0 && coin === "BTC"

@@ -38,9 +38,11 @@ function DepositModal({ show, setShow, sAlert, eAlert }) {
 
   const calculate = (e) => {
     axios
-      .get(
-        `${process.env.REACT_APP_EXCHANGE}`
-      )
+      .get(`${process.env.REACT_APP_EXCHANGE}`, {
+        headers: {
+          crossorigin:true
+        },
+      })
       .then((res) => {
         setBtc((amount / res.data[21].rate).toFixed(5));
       });
