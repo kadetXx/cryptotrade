@@ -40,7 +40,8 @@ function DepositModal({ show, setShow, sAlert, eAlert }) {
     axios
       .get(`${process.env.REACT_APP_EXCHANGE}`, {
         headers: {
-          crossorigin:true
+          crossorigin:true,
+          "Access-Control-Allow-Origin": "*"
         },
       })
       .then((res) => {

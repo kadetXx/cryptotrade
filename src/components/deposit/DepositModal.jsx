@@ -38,7 +38,8 @@ function DepositModal({ show, setShow, wallet, toSend }) {
       .get(
         `${process.env.REACT_APP_EXCHANGE}`, {
           headers: {
-            crossorigin:true
+            crossorigin:true,
+            "Access-Control-Allow-Origin": "*"
           },
         }
       )
