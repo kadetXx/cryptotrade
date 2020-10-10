@@ -43,7 +43,7 @@ function DepositModal({ show, setShow, wallet, toSend }) {
   return (
     <div>
       <Modal
-        title='Request Withdrawal'
+        title='Add Money To Your Account'
         visible={show}
         confirmLoading={confirmLoading}
         onOk={() => sendDeposit()}

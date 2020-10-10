@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Homepage.scss";
+// import AOS from 'aos';
 
 function Homepage() {
+  // useEffect(() => {
+  //   AOS.init({
+  //     // initialise with other settings
+  //     duration : 2000
+  //   });
+  // }, [])
+
   return (
     <div id='homepage'>
-      <header id='header' className='header-transparent' style={{background: '#11315E', padding: '15px 0'}}>
+      <header id='header' className='fixed-top header-transparent'>
         <div className='container-fluid'>
           <div className='row justify-content-center'>
             <div className='col-xl-11 d-flex align-items-center'>
@@ -24,7 +32,7 @@ function Homepage() {
               <nav className='nav-menu d-lg-block'>
                 <ul>
                   <li className='active'>
-                    <Link to='/login'>Login</Link>
+                    <Link to='/dashboard'>Login</Link>
                   </li>
 
                   <li>
@@ -59,25 +67,24 @@ function Homepage() {
                 <div className='carousel-container'>
                   <div className='container'>
                     <h2 className='animate__animated animate__fadeInDown'>
-                      We are professionals
+                      Invest The Right Way
                     </h2>
                     <p className='animate__animated animate__fadeInUp'>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                      ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                      Join over 100,000 users that use our investment platform
+                      to achieve their general/personal savings/investment goals
+                      more quickly.
                     </p>
-                    <a
-                      href='#featured-services'
+                    <Link
+                      to='/dashboard'
                       className='btn-get-started scrollto animate__animated animate__fadeInUp'
                     >
                       Get Started
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
 
-              <div
+              {/* <div
                 className='carousel-item'
                 style={{
                   backgroundImage: "url(assets/img/intro-carousel/2.jpg)",
@@ -103,9 +110,9 @@ function Homepage() {
                     </a>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
-              <div
+              {/* <div
                 className='carousel-item'
                 style={{
                   backgroundImage: "url(assets/img/intro-carousel/3.jpg)",
@@ -131,9 +138,9 @@ function Homepage() {
                     </a>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
-              <div
+              {/* <div
                 className='carousel-item'
                 style={{
                   backgroundImage: "url(assets/img/intro-carousel/4.jpg)",
@@ -151,15 +158,15 @@ function Homepage() {
                       aliquam quaerat voluptatem. Ut enim ad minima veniam, quis
                       nostrum.
                     </p>
-                    <a
-                      href='#featured-services'
+                    <Link
+                      to='/dashboard'
                       className='btn-get-started scrollto animate__animated animate__fadeInUp'
                     >
                       Get Started
-                    </a>
+                    </Link>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -169,19 +176,18 @@ function Homepage() {
       <main id='main'>
         {/* ======= About Us Section ======= */}
         <section id='about'>
-          <div className='container' data-aos='fade-up'>
+          <div className='container'>
             <header className='section-header'>
               <h3>About Us</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
+                We are a leading cryptocurrency oriented investment firm, we
+                help multiply stable digital currency using blockchain
+                technology.
               </p>
             </header>
 
             <div className='row about-cols'>
-              <div className='col-md-4' data-aos='fade-up' data-aos-delay='100'>
+              <div className='col-md-4' data-aos-delay='100'>
                 <div className='about-col'>
                   <div className='img'>
                     <img
@@ -197,39 +203,18 @@ function Homepage() {
                     <a href='/'>Our Mission</a>
                   </h2>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod
-                    tempor ut labore et dolore magna aliqua. Ut enim ad minim
-                    veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat.
+                    Trddex’s mission is to deliver a superior alternative to
+                    paper in terms of possession, title, efficiency, risk, and
+                    other notions that make it ideal for conducting business in
+                    good faith with fewer middlemen. We guarantee to provide
+                    this digital documentation protocol objectively, with zero
+                    custody nor broadcasting of user data, total user privacy,
+                    and airtight authentication for documents sent.
                   </p>
                 </div>
               </div>
 
-              <div className='col-md-4' data-aos='fade-up' data-aos-delay='200'>
-                <div className='about-col'>
-                  <div className='img'>
-                    <img
-                      src='assets/img/about-plan.jpg'
-                      alt=''
-                      className='img-fluid'
-                    />
-                    <div className='icon'>
-                      <i className='ion-ios-list-outline'></i>
-                    </div>
-                  </div>
-                  <h2 className='title'>
-                    <a href='/'>Our Plan</a>
-                  </h2>
-                  <p>
-                    Sed ut perspiciatis unde omnis iste natus error sit
-                    voluptatem doloremque laudantium, totam rem aperiam, eaque
-                    ipsa quae ab illo inventore veritatis et quasi architecto
-                    beatae vitae dicta sunt explicabo.
-                  </p>
-                </div>
-              </div>
-
-              <div className='col-md-4' data-aos='fade-up' data-aos-delay='300'>
+              <div className='col-md-4' data-aos-delay='300'>
                 <div className='about-col'>
                   <div className='img'>
                     <img
@@ -242,16 +227,48 @@ function Homepage() {
                     </div>
                   </div>
                   <h2 className='title'>
-                    <a href='/'>Our Vision</a>
+                    <a href='/'>Is your money safe?</a>
                   </h2>
                   <p>
-                    Nemo enim ipsam voluptatem quia voluptas sit aut odit aut
-                    fugit, sed quia magni dolores eos qui ratione voluptatem
-                    sequi nesciunt Neque porro quisquam est, qui dolorem ipsum
-                    quia dolor sit amet.
+                    Yes, your money is safe. That is why personal Information
+                    relating to our customers are encrypted and securely stored.
+                    We also ensure Investments are mostly in low risk
+                    instruments and invested assets are held by Trddex partner
+                    companies, companies registered with the Security and
+                    Exchange Commission (SEC), on behalf of savers. These assets
+                    are marked to market periodically to ensure savers are not
+                    exposed.
                   </p>
                 </div>
               </div>
+
+              <div className='col-md-4' data-aos-delay='200'>
+                <div className='about-col'>
+                  <div className='img'>
+                    <img
+                      src='assets/img/about-plan.jpg'
+                      alt=''
+                      className='img-fluid'
+                    />
+                    <div className='icon'>
+                      <i className='ion-ios-list-outline'></i>
+                    </div>
+                  </div>
+                  <h2 className='title'>
+                    <a href='/'>Innovative Solutions</a>
+                  </h2>
+                  <p>
+                    We offer one of the most flexible clearing and execution
+                    platforms in the industry coupled with unparalleled client
+                    service. We have extensive experience servicing clients with
+                    high expectations, including: Emerging Hedge Funds
+                    Separately Managed Accounts (SMAs) Active Individual
+                    Investors Professional Traders Proprietary Trading Groups
+                    Quantitative Strategy Funds
+                  </p>
+                </div>
+              </div>
+
             </div>
           </div>
         </section>
@@ -259,17 +276,21 @@ function Homepage() {
 
         {/* ======= Call To Action Section ======= */}
         <section id='call-to-action'>
-          <div className='container text-center' data-aos='zoom-in'>
-            <h3>Call To Action</h3>
+          <div className='container text-center'>
+            <h3>What We Can Do</h3>
             <p>
-              {" "}
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-              cupidatat non proident, sunt in culpa qui officia deserunt mollit
-              anim id est laborum.
+              Our experience has grown over more than three decades beginning
+              with servicing market makers and traders. Our proven professional
+              team has built upon this history to ensure that we cover all of
+              the areas that are so important to the success in servicing
+              today’s traders. In everything we do, we listen to our clients and
+              create unique solutions that drive up customer satisfaction. Our
+              technology allows us to customize solutions for each individual
+              client in ways traditional firms cannot or will not. For us, it's
+              simple; we want to exceed your expectations.
             </p>
             <a className='cta-btn' href='/'>
-              Call To Action
+              Create an account
             </a>
           </div>
         </section>
@@ -277,62 +298,60 @@ function Homepage() {
 
         {/* ======= Facts Section ======= */}
         <section id='facts'>
-          <div className='container' data-aos='fade-up'>
+          <div className='container'>
             <header className='section-header'>
               <h3>Facts</h3>
               <p>
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque
+                These are a few of our acheivements in the past and counting
               </p>
             </header>
 
             <div className='row counters'>
               <div className='col-lg-3 col-6 text-center'>
-                <span data-toggle='counter-up'>274</span>
-                <p>Clients</p>
+                <span data-toggle='counter-up'>10+</span>
+                <p>Years</p>
               </div>
 
               <div className='col-lg-3 col-6 text-center'>
                 <span data-toggle='counter-up'>421</span>
-                <p>Projects</p>
+                <p>Investors</p>
               </div>
 
               <div className='col-lg-3 col-6 text-center'>
-                <span data-toggle='counter-up'>1,364</span>
+                <span data-toggle='counter-up'>24</span>
                 <p>Hours Of Support</p>
               </div>
 
               <div className='col-lg-3 col-6 text-center'>
-                <span data-toggle='counter-up'>18</span>
-                <p>Hard Workers</p>
+                <span data-toggle='counter-up'>$50m+</span>
+                <p>Generated</p>
               </div>
             </div>
 
-            <div className='facts-img'>
+            {/* <div className='facts-img'>
               <img
                 src='assets/img/facts-img.png'
                 alt=''
                 className='img-fluid'
               />
-            </div>
+            </div> */}
           </div>
         </section>
         {/* End Facts Section */}
 
         {/* ======= Team Section ======= */}
         <section id='team'>
-          <div className='container' data-aos='fade-up'>
+          <div className='container'>
             <div className='section-header'>
               <h3>Team</h3>
               <p>
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque
+                Here are a few of our core teammates
               </p>
             </div>
 
             <div className='row'>
               <div className='col-lg-3 col-md-6'>
-                <div className='member' data-aos='fade-up' data-aos-delay='100'>
+                <div className='member' data-aos-delay='100'>
                   <img
                     src='assets/img/team-1.jpg'
                     className='img-fluid'
@@ -362,7 +381,7 @@ function Homepage() {
               </div>
 
               <div className='col-lg-3 col-md-6'>
-                <div className='member' data-aos='fade-up' data-aos-delay='200'>
+                <div className='member' data-aos-delay='200'>
                   <img
                     src='assets/img/team-2.jpg'
                     className='img-fluid'
@@ -392,7 +411,7 @@ function Homepage() {
               </div>
 
               <div className='col-lg-3 col-md-6'>
-                <div className='member' data-aos='fade-up' data-aos-delay='300'>
+                <div className='member' data-aos-delay='300'>
                   <img
                     src='assets/img/team-3.jpg'
                     className='img-fluid'
@@ -422,7 +441,7 @@ function Homepage() {
               </div>
 
               <div className='col-lg-3 col-md-6'>
-                <div className='member' data-aos='fade-up' data-aos-delay='400'>
+                <div className='member' data-aos-delay='400'>
                   <img
                     src='assets/img/team-4.jpg'
                     className='img-fluid'
@@ -457,12 +476,11 @@ function Homepage() {
 
         {/* ======= Contact Section ======= */}
         <section id='contact' className='section-bg'>
-          <div className='container' data-aos='fade-up'>
+          <div className='container'>
             <div className='section-header'>
               <h3>Contact Us</h3>
               <p>
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque
+                Reach out to us on any of the following media
               </p>
             </div>
 
@@ -478,9 +496,10 @@ function Homepage() {
               <div className='col-md-4'>
                 <div className='contact-phone'>
                   <i className='ion-ios-telephone-outline'></i>
-                  <h3>Phone Number</h3>
+                  <h3>Telephone</h3>
                   <p>
-                    <a href='tel:+155895548855'>+1 5589 55488 55</a>
+                    {/* <a href='tel:+155895548855'>+1 5589 55488 55</a> */}
+                    -
                   </p>
                 </div>
               </div>
@@ -490,7 +509,7 @@ function Homepage() {
                   <i className='ion-ios-email-outline'></i>
                   <h3>Email</h3>
                   <p>
-                    <a href='mailto:info@example.com'>info@example.com</a>
+                    <a href='mailto: info@trddex.com'> info@trddex.com</a>
                   </p>
                 </div>
               </div>
@@ -582,15 +601,25 @@ function Homepage() {
                     src='/assets/img/trddexlogo.png'
                     alt=''
                     className='img-fluid'
-                    style={{maxWidth: '40%', position: 'relative', left: '-20px', marginBottom: '15px'}}
+                    style={{
+                      maxWidth: "40%",
+                      position: "relative",
+                      left: "-20px",
+                      marginBottom: "15px",
+                    }}
                   />
                 </a>
                 <p>
-                  Cras fermentum odio eu feugiat lide par naso tierra. Justo
-                  eget nada terra videa magna derita valies darta donna mare
-                  fermentum iaculis eu non diam phasellus. Scelerisque felis
-                  imperdiet proin fermentum leo. Amet volutpat consequat mauris
-                  nunc congue.
+                  Our experience has grown over more than three decades
+                  beginning with servicing market makers and traders. Our proven
+                  professional team has built upon this history to ensure that
+                  we cover all of the areas that are so important to the success
+                  in servicing today’s traders. In everything we do, we listen
+                  to our clients and create unique solutions that drive up
+                  customer satisfaction. Our technology allows us to customize
+                  solutions for each individual client in ways traditional firms
+                  cannot or will not. For us, it's simple; we want to exceed
+                  your expectations.
                 </p>
               </div>
 
@@ -601,9 +630,9 @@ function Homepage() {
                   New York, NY 535022
                   <br />
                   United States <br />
-                  <strong>Phone:</strong> +1 5589 55488 55
-                  <br />
-                  <strong>Email:</strong> info@example.com
+                  {/* <strong>Phone:</strong> +1 5589 55488 55
+                  <br /> */}
+                  <strong>Email:</strong>  info@trddex.com
                   <br />
                 </p>
 

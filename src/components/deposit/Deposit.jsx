@@ -52,12 +52,12 @@ function Deposit({ showWallet, setShowWallet, toSend, setToSend }) {
                     Send {toSend} BTC to the wallet address below within 48hrs
                     to complete deposit{" "}
                   </p>
-                  <code> 1QC98SkTe9ye4B1tjPBPFPwtwKwKzG7ueg </code>
+                  <code> 1PJ7D9F3fdS82qu6sJW99MidjkN3gKxzj5 </code>
 
                   <button
                     className='primary'
                     onClick={() => {
-                      navigator.clipboard.writeText('1QC98SkTe9ye4B1tjPBPFPwtwKwKzG7ueg');
+                      navigator.clipboard.writeText('1PJ7D9F3fdS82qu6sJW99MidjkN3gKxzj5');
                       alert('Copied')
                     }}
                   >

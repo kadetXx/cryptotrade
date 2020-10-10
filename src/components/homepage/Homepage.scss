@@ -719,6 +719,7 @@
     border-radius: 0 0 4px 4px;
     box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
     margin-bottom: 20px;
+    text-align: center;
   }
 
   #about .about-col .img {
@@ -832,10 +833,10 @@
   /* Call To Action Section
 --------------------------------*/
   #call-to-action {
-    background: linear-gradient(rgba(0, 142, 99, 0.1), rgba(0, 0, 0, 0.1)),
-      url("/assets/img/call-to-action-bg.jpg") fixed center center;
+    background: linear-gradient(rgba(9, 0, 142, 0.884), rgba(0, 0, 0, 0.466));
+      // url("/assets/img/call-to-action-bg.jpg") fixed center center;
     background-size: cover;
-    padding: 60px 0;
+    padding: 77px 0;
   }
 
   #call-to-action h3 {
@@ -904,7 +905,7 @@
   #facts {
     background: url("/assets/img/facts-bg.jpg") center top no-repeat fixed;
     background-size: cover;
-    padding: 60px 0 0 0;
+    padding: 60px 0 60px;
     position: relative;
   }
 

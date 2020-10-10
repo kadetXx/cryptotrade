@@ -17,6 +17,8 @@ function Profile() {
   const [resetToken, setResetToken] = useState("");
   const [resetPass, setResetPass] = useState("");
 
+  const [loading, setLoading] = useState(false)
+
   const cookies = new Cookies();
   const authtoken = cookies.get("auth_token");
 
@@ -74,6 +76,7 @@ function Profile() {
       .then((res) => {
         console.log(res);
         setResetProgress(1);
+        setLoading(false)
       })
       .catch((err) => console.log(err.response));
   };
@@ -234,9 +237,11 @@ function Profile() {
                   <button
                     type='button'
                     className='primary'
-                    onClick={() => getToken()}
+                    onClick={() => [setLoading(true), getToken()]}
                   >
-                    Get Reset Token
+                    {
+                      loading ? '...' : 'Get Reset Token'
+                    }
                   </button>
                 </form>
               )}

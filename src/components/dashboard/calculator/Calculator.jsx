@@ -14,19 +14,22 @@ const Calculator = () => {
     setCoin(e.key);
   };
 
-
   const calculate = () => {
-    axios.get(`${process.env.REACT_APP_BTC_API}`).then((res) => {
-      amount.length > 0 && coin === "BTC"
-        ? setCoinAmount((amount / res.data.rates.BTC).toFixed(5))
-        : amount.length > 0 && coin === "ETH"
-        ? setCoinAmount((amount / res.data.rates.ETH).toFixed(5))
-        : coinAmount.length > 0 && coin === "BTC"
-        ? setAmount((coinAmount * res.data.rates.BTC).toFixed(5))
-        : coinAmount.length > 0 && coin === "ETH"
-        ? setAmount((coinAmount * res.data.rates.ETH).toFixed(5))
-        : console.log(res.data);
-    });
+    axios
+      .get(`${process.env.REACT_APP_BTC_API}`)
+      .then((res) => {
+        console.log(res);
+        amount.length > 0 && coin === "BTC"
+          ? setCoinAmount((amount / res.data.rates.BTC).toFixed(5))
+          : amount.length > 0 && coin === "ETH"
+          ? setCoinAmount((amount / res.data.rates.ETH).toFixed(5))
+          : coinAmount.length > 0 && coin === "BTC"
+          ? setAmount((coinAmount * res.data.rates.BTC).toFixed(5))
+          : coinAmount.length > 0 && coin === "ETH"
+          ? setAmount((coinAmount * res.data.rates.ETH).toFixed(5))
+          : console.log(res.data);
+      })
+      .catch((err) => console.log(err));
   };
 
   const handleCoinInput = () => {
