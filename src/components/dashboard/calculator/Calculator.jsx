@@ -16,17 +16,17 @@ const Calculator = () => {
 
   const calculate = () => {
     axios
-      .get(`${process.env.REACT_APP_BTC_API}`)
+      .get(`${process.env.REACT_APP_EXCHANGE}`)
       .then((res) => {
         console.log(res);
         amount.length > 0 && coin === "BTC"
-          ? setCoinAmount((amount / res.data.rates.BTC).toFixed(5))
+          ? setCoinAmount((amount / res.data[21].rate).toFixed(5))
           : amount.length > 0 && coin === "ETH"
-          ? setCoinAmount((amount / res.data.rates.ETH).toFixed(5))
+          ? setCoinAmount((amount / res.data[46].rate).toFixed(5))
           : coinAmount.length > 0 && coin === "BTC"
-          ? setAmount((coinAmount * res.data.rates.BTC).toFixed(5))
+          ? setAmount((coinAmount * res.data[21].rate).toFixed(5))
           : coinAmount.length > 0 && coin === "ETH"
-          ? setAmount((coinAmount * res.data.rates.ETH).toFixed(5))
+          ? setAmount((coinAmount * res.data[46].rate).toFixed(5))
           : console.log(res.data);
       })
       .catch((err) => console.log(err));

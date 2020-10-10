@@ -5,7 +5,7 @@ import { Modal } from "antd";
 
 import axios from "axios";
 
-function DepositModal({ show, setShow, sAlert, eAlert}) {
+function DepositModal({ show, setShow, sAlert, eAlert }) {
   const [amount, setAmount] = useState(0.0);
   const [btc, setBtc] = useState(0);
   const [confirmLoading, setConfirmLoading] = useState(false);
@@ -22,25 +22,28 @@ function DepositModal({ show, setShow, sAlert, eAlert}) {
 
     const data = { amount, amount_in_btc: btc };
 
-    axios
-      .post(`${process.env.REACT_APP_API}/withdraw/`, data, config)
-      .then((res) => {
-        setConfirmLoading(false);
-        setShow(false);
-        sAlert(true)
-      })
-      .catch((err) => {
-        console.log(err);
-        eAlert(true)
-      });
+    amount.length > 0 &&
+      axios
+        .post(`${process.env.REACT_APP_API}/withdraw/`, data, config)
+        .then((res) => {
+          setConfirmLoading(false);
+          setShow(false);
+          sAlert(true);
+        })
+        .catch((err) => {
+          console.log(err);
+          eAlert(true);
+        });
   };
 
   const calculate = (e) => {
-    setAmount(e.target.value);
-
-    axios.get(process.env.REACT_APP_BTC_API).then((res) => {
-      setBtc((amount / res.data.rates.BTC).toFixed(5));
-    });
+    axios
+      .get(
+        `${process.env.REACT_APP_EXCHANGE}`
+      )
+      .then((res) => {
+        setBtc((amount / res.data[21].rate).toFixed(5));
+      });
   };
 
   return (
@@ -62,7 +65,8 @@ function DepositModal({ show, setShow, sAlert, eAlert}) {
                 type='number'
                 placeholder={amount}
                 value={amount}
-                onChange={(e) => calculate(e)}
+                onChange={(e) => setAmount(e.target.value)}
+                onKeyUp={(e) => calculate(e)}
               />
             </div>
           </label>

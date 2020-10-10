@@ -13,31 +13,35 @@ function DepositModal({ show, setShow, wallet, toSend }) {
   const cookies = new Cookies();
   const authtoken = cookies.get("auth_token");
 
-
   const sendDeposit = () => {
-    setConfirmLoading(true)
+    setConfirmLoading(true);
 
     const config = {
-      headers: {'Authorization': `Token ${authtoken}`}
-    }
+      headers: { Authorization: `Token ${authtoken}` },
+    };
 
-    const data = {amount, amount_in_btc: btc}
+    const data = { amount, amount_in_btc: btc };
 
-    axios.post(`${process.env.REACT_APP_API}/deposit/`, data , config )
-    .then(res => {
-      setConfirmLoading(false)
-      wallet(true)
-      setShow(false);
-      toSend(btc);
-    })
+    amount.length > 0 &&
+      axios
+        .post(`${process.env.REACT_APP_API}/deposit/`, data, config)
+        .then((res) => {
+          setConfirmLoading(false);
+          wallet(true);
+          setShow(false);
+          toSend(btc);
+        });
   };
 
   const calculate = (e) => {
-    setAmount(e.target.value);
-
-    axios.get(process.env.REACT_APP_BTC_API).then((res) => {
-      setBtc((amount / res.data.rates.BTC).toFixed(5));
-    });
+    axios
+      .get(
+        `${process.env.REACT_APP_EXCHANGE}`
+      )
+      .then((res) => {
+        console.log(res.data);
+        setBtc((amount / res.data[21].rate).toFixed(5));
+      });
   };
 
   return (
@@ -59,7 +63,8 @@ function DepositModal({ show, setShow, wallet, toSend }) {
                 type='number'
                 placeholder={amount}
                 value={amount}
-                onChange={(e) => calculate(e)}
+                onChange={(e) => setAmount(e.target.value)}
+                onKeyUp={(e) => calculate(e)}
               />
             </div>
           </label>

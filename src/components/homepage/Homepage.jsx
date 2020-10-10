@@ -1,16 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "./Homepage.scss";
 // import AOS from 'aos';
 
 function Homepage() {
-  // useEffect(() => {
-  //   AOS.init({
-  //     // initialise with other settings
-  //     duration : 2000
-  //   });
-  // }, [])
-
+ 
   return (
     <div id='homepage'>
       <header id='header' className='fixed-top header-transparent'>
