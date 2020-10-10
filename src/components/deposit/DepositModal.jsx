@@ -6,7 +6,7 @@ import { Modal } from "antd";
 import axios from "axios";
 
 function DepositModal({ show, setShow, wallet, toSend }) {
-  const [amount, setAmount] = useState(0.0);
+  const [amount, setAmount] = useState(0);
   const [btc, setBtc] = useState(0);
   const [confirmLoading, setConfirmLoading] = useState(false);
 
@@ -14,7 +14,7 @@ function DepositModal({ show, setShow, wallet, toSend }) {
   const authtoken = cookies.get("auth_token");
 
   const sendDeposit = () => {
-    setConfirmLoading(true);
+    amount.length > 0 && amount > 0 && setConfirmLoading(true);
 
     const config = {
       headers: { Authorization: `Token ${authtoken}` },
@@ -22,7 +22,7 @@ function DepositModal({ show, setShow, wallet, toSend }) {
 
     const data = { amount, amount_in_btc: btc };
 
-    amount.length > 0 &&
+    amount.length > 0 && amount > 0 &&
       axios
         .post(`${process.env.REACT_APP_API}/deposit/`, data, config)
         .then((res) => {

@@ -95,6 +95,7 @@
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
+      padding: 2rem;
 
       .section-one {
         width: fit-content;
@@ -121,8 +122,9 @@
       }
 
       .section-two {
-        width: 58%;
+        // width: 70%;
         display: flex;
+        flex-grow: 1;
         flex-direction: column;
         align-items: center;
         justify-content: center;

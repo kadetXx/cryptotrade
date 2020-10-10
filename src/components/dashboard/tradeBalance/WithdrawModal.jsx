@@ -14,7 +14,7 @@ function DepositModal({ show, setShow, sAlert, eAlert }) {
   const authtoken = cookies.get("auth_token");
 
   const sendDeposit = () => {
-    setConfirmLoading(true);
+    amount.length > 0 && amount > 0 && setConfirmLoading(true);
 
     const config = {
       headers: { Authorization: `Token ${authtoken}` },
@@ -22,7 +22,7 @@ function DepositModal({ show, setShow, sAlert, eAlert }) {
 
     const data = { amount, amount_in_btc: btc };
 
-    amount.length > 0 &&
+    amount.length > 0 && amount > 0 &&
       axios
         .post(`${process.env.REACT_APP_API}/withdraw/`, data, config)
         .then((res) => {

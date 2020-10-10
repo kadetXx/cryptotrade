@@ -43,9 +43,9 @@ function Deposit({ showWallet, setShowWallet, toSend, setToSend }) {
           {showWallet && (
             <section>
               <div className='box bank-box'>
-                <div className='section-one'>
+                {/* <div className='section-one'>
                   <i className='fab fa-btc'></i>
-                </div>
+                </div> */}
 
                 <div className='section-two'>
                   <p>
@@ -65,13 +65,13 @@ function Deposit({ showWallet, setShowWallet, toSend, setToSend }) {
                   </button>
                 </div>
 
-                <div className='section-three'>
+                {/* <div className='section-three'>
                   <p>
                     You can also scan this QR code with preferred wallet to
                     complete deposit
                   </p>
                   <img src='/assets/img/qrcode.png' alt='code' />
-                </div>
+                </div> */}
               </div>
             </section>
           )}
