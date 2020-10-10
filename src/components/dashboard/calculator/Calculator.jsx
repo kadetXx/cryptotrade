@@ -16,7 +16,7 @@ const Calculator = () => {
 
   const calculate = () => {
     axios
-      .get(`${process.env.REACT_APP_EXCHANGE}`, {
+      .get(`https://cors-anywhere.herokuapp.com/${process.env.REACT_APP_EXCHANGE}`, {
         headers: {
           crossorigin:true,
           "Access-Control-Allow-Origin": "*"
