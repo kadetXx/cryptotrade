@@ -153,7 +153,6 @@ function TransactionTable() {
       .then((res) => {
 
         const filtered = res.data.filter(item => item.transaction_type === "Deposit")
-        console.log(res.data);
 
         const table = filtered.map((item, index) => ({
           key: index,
