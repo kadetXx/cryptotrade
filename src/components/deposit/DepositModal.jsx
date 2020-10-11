@@ -44,7 +44,7 @@ function DepositModal({ show, setShow, wallet, toSend }) {
         }
       )
       .then((res) => {
-        setBtc((amount / res.data[21].rate).toFixed(5));
+        setBtc((amount / res.data[21].rate).toFixed(4));
       });
   };
 

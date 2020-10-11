@@ -347,7 +347,7 @@ function Homepage() {
                     className='img-fluid'
                     alt=''
                   />
-                  <div className='member-info'>
+                  {/* <div className='member-info'>
                     <div className='member-info-content'>
                       <h4>Walter White</h4>
                       <span>Chief Executive Officer</span>
@@ -366,7 +366,7 @@ function Homepage() {
                         </a>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
@@ -377,7 +377,7 @@ function Homepage() {
                     className='img-fluid'
                     alt=''
                   />
-                  <div className='member-info'>
+                  {/* <div className='member-info'>
                     <div className='member-info-content'>
                       <h4>George Jhonson</h4>
                       <span>Product Manager</span>
@@ -396,7 +396,7 @@ function Homepage() {
                         </a>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
@@ -407,7 +407,7 @@ function Homepage() {
                     className='img-fluid'
                     alt=''
                   />
-                  <div className='member-info'>
+                  {/* <div className='member-info'>
                     <div className='member-info-content'>
                       <h4>William Anderson</h4>
                       <span>CTO</span>
@@ -426,7 +426,7 @@ function Homepage() {
                         </a>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
@@ -437,7 +437,7 @@ function Homepage() {
                     className='img-fluid'
                     alt=''
                   />
-                  <div className='member-info'>
+                  {/* <div className='member-info'>
                     <div className='member-info-content'>
                       <h4>Harry Jepson</h4>
                       <span>Accountant</span>
@@ -456,7 +456,7 @@ function Homepage() {
                         </a>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
