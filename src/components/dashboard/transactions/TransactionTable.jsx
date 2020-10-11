@@ -159,6 +159,7 @@ function TransactionTable() {
         },
       })
       .then((res) => {
+        console.log(res.data);
 
         const table = res.data.map((item, index) => ({
           key: index,

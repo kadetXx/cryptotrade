@@ -5,28 +5,28 @@ import axios from "axios";
 import { Table, Tag } from 'antd';
 
 const columns = [
-  {
-    title: 'Status',
-    dataIndex: 'status',
-    key: 'status',
-    render: status => (
-      <React.Fragment>
-        {
-          status === 'Paid' ? (
-            <p style={{display: 'flex', alignItems: 'center', marginBottom: '0'}}>
-              <span className="material-icons" style={{color: '#B1C95E',  width: '48px', height: '24px'}}>check_circle_outlined</span>
-              {status}
-            </p>
-          ) : (
-            <p style={{display: 'flex', alignItems: 'center', marginBottom: '0'}}>
-              <span className="material-icons" style={{color: '#FB775E', width: '48px', height: '24px'}}>error_outline</span>
-              {status}
-            </p>
-          )
-        }
-      </React.Fragment>
-    )
-  },
+  // {
+  //   title: 'Status',
+  //   dataIndex: 'status',
+  //   key: 'status',
+  //   render: status => (
+  //     <React.Fragment>
+  //       {
+  //         status === 'Paid' ? (
+  //           <p style={{display: 'flex', alignItems: 'center', marginBottom: '0'}}>
+  //             <span className="material-icons" style={{color: '#B1C95E',  width: '48px', height: '24px'}}>check_circle_outlined</span>
+  //             {status}
+  //           </p>
+  //         ) : (
+  //           <p style={{display: 'flex', alignItems: 'center', marginBottom: '0'}}>
+  //             <span className="material-icons" style={{color: '#FB775E', width: '48px', height: '24px'}}>error_outline</span>
+  //             {status}
+  //           </p>
+  //         )
+  //       }
+  //     </React.Fragment>
+  //   )
+  // },
   {
     title: 'Date',
     dataIndex: 'date',
@@ -152,11 +152,12 @@ function TransactionTable() {
       })
       .then((res) => {
 
-        const filtered = res.data.filter(item => item.type === ["Deposit"])
+        const filtered = res.data.filter(item => item.transaction_type === "Deposit")
+        console.log(res.data);
 
         const table = filtered.map((item, index) => ({
           key: index,
-          status: item.status,
+          // status: item.status,
           date: item.date,
           type: [item.transaction_type],
           amount: item.amount,
