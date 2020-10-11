@@ -160,7 +160,7 @@ function TransactionTable() {
           date: item.date,
           type: [item.transaction_type],
           amount: item.amount,
-          currency: item.currency.slice(2, 5),
+          currency: item.payment_method,
           coins: item.amount,
         }))
 
