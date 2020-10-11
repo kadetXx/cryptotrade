@@ -152,17 +152,17 @@ function TransactionTable() {
       })
       .then((res) => {
 
-        console.log(res);
-
         const table = res.data.map((item, index) => ({
           key: index,
           status: item.status,
           date: item.date,
           type: [item.transaction_type],
           amount: item.amount,
-          currency: item.currency.slice(2, 5),
+          currency: item.payment_method,
           coins: item.amount,
         }));
+
+        console.log(res.data);
 
         setTransactions(table.slice(0, 15))
       })

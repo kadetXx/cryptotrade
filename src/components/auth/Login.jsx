@@ -46,7 +46,7 @@ function Login() {
       })
       .catch((err) => {
         setLoading(false);
-        setErrMessage(err.response.data.non_field_errors)
+        setErrMessage('An error occured')
         setError(true);
       });
   };

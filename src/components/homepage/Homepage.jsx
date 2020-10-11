@@ -4,7 +4,6 @@ import "./Homepage.scss";
 // import AOS from 'aos';
 
 function Homepage() {
- 
   return (
     <div id='homepage'>
       <header id='header' className='fixed-top header-transparent'>
@@ -174,9 +173,9 @@ function Homepage() {
             <header className='section-header'>
               <h3>About Us</h3>
               <p>
-                We are a leading cryptocurrency oriented investment firm, we
-                help multiply stable digital currency using blockchain
-                technology.
+                We are a leading investment firm that trades stable digital
+                currency using blockchain technology, stock, shares, bonds and
+                other securities.
               </p>
             </header>
 
@@ -212,7 +211,7 @@ function Homepage() {
                 <div className='about-col'>
                   <div className='img'>
                     <img
-                      src='assets/img/about-vision.jpg'
+                      src='assets/img/money-safe.jpg'
                       alt=''
                       className='img-fluid'
                     />
@@ -262,7 +261,6 @@ function Homepage() {
                   </p>
                 </div>
               </div>
-
             </div>
           </div>
         </section>
@@ -338,16 +336,14 @@ function Homepage() {
           <div className='container'>
             <div className='section-header'>
               <h3>Team</h3>
-              <p>
-                Here are a few of our core teammates
-              </p>
+              <p>Here are a few of our core teammates</p>
             </div>
 
             <div className='row'>
               <div className='col-lg-3 col-md-6'>
                 <div className='member' data-aos-delay='100'>
                   <img
-                    src='assets/img/team-1.jpg'
+                    src='assets/img/teamone.jpg'
                     className='img-fluid'
                     alt=''
                   />
@@ -377,13 +373,13 @@ function Homepage() {
               <div className='col-lg-3 col-md-6'>
                 <div className='member' data-aos-delay='200'>
                   <img
-                    src='assets/img/team-2.jpg'
+                    src='assets/img/teamtwo.jpg'
                     className='img-fluid'
                     alt=''
                   />
                   <div className='member-info'>
                     <div className='member-info-content'>
-                      <h4>Sarah Jhonson</h4>
+                      <h4>George Jhonson</h4>
                       <span>Product Manager</span>
                       <div className='social'>
                         <a href='/'>
@@ -407,7 +403,7 @@ function Homepage() {
               <div className='col-lg-3 col-md-6'>
                 <div className='member' data-aos-delay='300'>
                   <img
-                    src='assets/img/team-3.jpg'
+                    src='assets/img/teamthree.jpg'
                     className='img-fluid'
                     alt=''
                   />
@@ -437,13 +433,13 @@ function Homepage() {
               <div className='col-lg-3 col-md-6'>
                 <div className='member' data-aos-delay='400'>
                   <img
-                    src='assets/img/team-4.jpg'
+                    src='assets/img/team-1.jpg'
                     className='img-fluid'
                     alt=''
                   />
                   <div className='member-info'>
                     <div className='member-info-content'>
-                      <h4>Amanda Jepson</h4>
+                      <h4>Harry Jepson</h4>
                       <span>Accountant</span>
                       <div className='social'>
                         <a href='/'>
@@ -473,9 +469,7 @@ function Homepage() {
           <div className='container'>
             <div className='section-header'>
               <h3>Contact Us</h3>
-              <p>
-                Reach out to us on any of the following media
-              </p>
+              <p>Reach out to us on any of the following media</p>
             </div>
 
             <div className='row contact-info'>
@@ -492,8 +486,7 @@ function Homepage() {
                   <i className='ion-ios-telephone-outline'></i>
                   <h3>Telephone</h3>
                   <p>
-                    {/* <a href='tel:+155895548855'>+1 5589 55488 55</a> */}
-                    -
+                    {/* <a href='tel:+155895548855'>+1 5589 55488 55</a> */}-
                   </p>
                 </div>
               </div>
@@ -507,75 +500,6 @@ function Homepage() {
                   </p>
                 </div>
               </div>
-            </div>
-
-            <div className='form'>
-              <form
-                // action='forms/contact.php'
-                // method='post'
-                // role='form'
-                className='php-email-form'
-              >
-                <div className='form-row'>
-                  <div className='form-group col-md-6'>
-                    <input
-                      type='text'
-                      name='name'
-                      className='form-control'
-                      id='name'
-                      placeholder='Your Name'
-                      data-rule='minlen:4'
-                      data-msg='Please enter at least 4 chars'
-                    />
-                    <div className='validate'></div>
-                  </div>
-                  <div className='form-group col-md-6'>
-                    <input
-                      type='email'
-                      className='form-control'
-                      name='email'
-                      id='email'
-                      placeholder='Your Email'
-                      data-rule='email'
-                      data-msg='Please enter a valid email'
-                    />
-                    <div className='validate'></div>
-                  </div>
-                </div>
-                <div className='form-group'>
-                  <input
-                    type='text'
-                    className='form-control'
-                    name='subject'
-                    id='subject'
-                    placeholder='Subject'
-                    data-rule='minlen:4'
-                    data-msg='Please enter at least 8 chars of subject'
-                  />
-                  <div className='validate'></div>
-                </div>
-                <div className='form-group'>
-                  <textarea
-                    className='form-control'
-                    name='message'
-                    rows='5'
-                    data-rule='required'
-                    data-msg='Please write something for us'
-                    placeholder='Message'
-                  ></textarea>
-                  <div className='validate'></div>
-                </div>
-                <div className='mb-3'>
-                  <div className='loading'>Loading</div>
-                  <div className='error-message'></div>
-                  <div className='sent-message'>
-                    Your message has been sent. Thank you!
-                  </div>
-                </div>
-                <div className='text-center'>
-                  <button type='submit'>Send Message</button>
-                </div>
-              </form>
             </div>
           </div>
         </section>
@@ -626,7 +550,7 @@ function Homepage() {
                   United States <br />
                   {/* <strong>Phone:</strong> +1 5589 55488 55
                   <br /> */}
-                  <strong>Email:</strong>  info@trddex.com
+                  <strong>Email:</strong> info@trddex.com
                   <br />
                 </p>
 
