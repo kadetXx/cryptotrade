@@ -64,7 +64,7 @@ function Homepage() {
                     </h2>
                     <p className='animate__animated animate__fadeInUp'>
                       Join over 100,000 users who use our company to achieve
-                      their personal investment goals. At Trddex, have a team of
+                      their personal investment goals. At Trddex, we have a team of
                       professionals with vast industry experience and track
                       records that stand out; so, what are you waiting for? Join
                       now!!!
