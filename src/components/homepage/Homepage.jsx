@@ -63,9 +63,11 @@ function Homepage() {
                       Invest The Right Way
                     </h2>
                     <p className='animate__animated animate__fadeInUp'>
-                      Join over 100,000 users that use our investment platform
-                      to achieve their general/personal savings/investment goals
-                      more quickly.
+                      Join over 100,000 users who use our company to achieve
+                      their personal investment goals. At Trddex, have a team of
+                      professionals with vast industry experience and track
+                      records that stand out; so, what are you waiting for? Join
+                      now!!!
                     </p>
                     <Link
                       to='/dashboard'
@@ -343,7 +345,7 @@ function Homepage() {
               <div className='col-lg-3 col-md-6'>
                 <div className='member' data-aos-delay='100'>
                   <img
-                    src='assets/img/teamone.jpg'
+                    src='assets/img/teamm.jpg'
                     className='img-fluid'
                     alt=''
                   />
@@ -373,7 +375,7 @@ function Homepage() {
               <div className='col-lg-3 col-md-6'>
                 <div className='member' data-aos-delay='200'>
                   <img
-                    src='assets/img/teamtwo.jpg'
+                    src='assets/img/teamme.jpg'
                     className='img-fluid'
                     alt=''
                   />
