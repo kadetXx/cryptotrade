@@ -1,8 +1,6 @@
 #tradeBalance {
 
   h4 {
-    // font-size: 1.2rem;
-    // margin-bottom: 1rem;
     font-weight: 400;
     font-size: 1.3rem;
     padding: 1rem 0px;
@@ -10,7 +8,7 @@
 
   .trade-box {
     display: flex;
-    
+    flex-wrap: wrap;
     padding: 1.5rem 4rem;
 
     @media(max-width: 545px) {
@@ -29,20 +27,39 @@
       //   font-weight: 500;
       // }
   
-      p:nth-child(1) {
+      p.acct-balance {
         font-size: 2rem;
         font-weight: 600;
         color: #11315E;
       }
-  
-      p:nth-child(2) {
-        font-size: 1rem;
+
+      .profit-container {
+        display: flex;
+
+        p {
+          margin-right: 1rem;
+          font-size: 1rem;
+          text-transform: uppercase;
+          font-weight: 400;
+
+          b {
+            color: #11315E;
+            font-size: 1.1rem;
+          }
+          
+        }
       }
+  
     }
   
     .right {
       display: flex;
       align-items: center;
+      
+      @media screen and (max-width: 774px) {
+        width: 100%;
+        margin-top: 1rem;
+      }
       
       button {
         padding: .6rem 3rem;
@@ -60,17 +77,23 @@
       // flex-direction: column;
   
       .left {
-        width: 60%;
-        p {
-          margin: 0;
+        width: 100%;
+        
+        .profit-container {
+          display: flex;
+  
+          p {
+            margin-right: 1rem;
+            font-size: 0.9rem;
+          }
         }
+
+
       }
   
       .right {
-        width: 40%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        width: 100%;
+
         
         button {
           padding: .4rem 1rem;

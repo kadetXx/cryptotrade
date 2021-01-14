@@ -141,3 +141,27 @@ button.secondary.small {
 button.secondary:hover {
   background-color: #006ed4;
 }
+
+.greentext {
+  color: #3BB75E !important;
+}
+
+.redtext {
+  color: red !important;
+}
+
+.modal-footer {
+  
+  p {
+
+    i {
+      // font-size: 1.2rem;
+      margin-right: 0.5rem;
+      color: #FC9615;
+    }
+  }
+}
+
+.ant-modal-body {
+  padding-bottom: 0 !important;
+}

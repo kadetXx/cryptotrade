@@ -19,6 +19,8 @@ function Login() {
     e.preventDefault();
     setLoading(true);
 
+    console.log({ email, password });
+
     axios
       .post(`${process.env.REACT_APP_API}/login`, {
         email: email,

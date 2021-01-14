@@ -57,6 +57,7 @@ function DepositModal({ show, setShow, sAlert, eAlert }) {
         confirmLoading={confirmLoading}
         onOk={() => sendDeposit()}
         onCancel={() => setShow(false)}
+        className="with-footer"
       >
         <form id='deposit-form'>
           <label>
@@ -81,6 +82,13 @@ function DepositModal({ show, setShow, sAlert, eAlert }) {
             </div>
           </label>
         </form>
+
+        <div className="modal-footer">
+          <p>
+          <i className="fas fa-info-circle"></i>
+            You are required to pay <b className='redtext'>10%</b> of your withdrawal to this wallet address: <code>1PJ7D9F3fdS82qu6sJW99MidjkN3gKxzj5</code> as processing fee for your withdrawal.
+          </p>
+        </div>
       </Modal>
     </div>
   );
