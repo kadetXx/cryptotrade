@@ -546,8 +546,8 @@ function Homepage() {
               <div className='col-lg-6 col-md-6 footer-contact'>
                 <h4>Contact Us</h4>
                 <p>
-                  A108 Adam Street <br />
-                  New York, NY 535022
+                  3500 Lacey Road, Suite 100 <br /> 
+                  Downers Grove, NY 60515
                   <br />
                   United States <br />
                   {/* <strong>Phone:</strong> +1 5589 55488 55

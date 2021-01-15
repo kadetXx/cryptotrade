@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Cookies from "universal-cookie";
 
 import { Modal } from "antd";
@@ -8,10 +8,12 @@ import axios from "axios";
 function DepositModal({ show, setShow, sAlert, eAlert }) {
   const [amount, setAmount] = useState(0.0);
   const [btc, setBtc] = useState(0);
+  const [fee, setFee] = useState('10% of withdrawal amount')
   const [confirmLoading, setConfirmLoading] = useState(false);
 
   const cookies = new Cookies();
   const authtoken = cookies.get("auth_token");
+
 
   const sendDeposit = () => {
     amount.length > 0 && amount > 0 && setConfirmLoading(true);
@@ -40,14 +42,33 @@ function DepositModal({ show, setShow, sAlert, eAlert }) {
     axios
       .get(`${process.env.REACT_APP_EXCHANGE}`, {
         headers: {
-          crossorigin:true,
-          "Access-Control-Allow-Origin": "*"
-        },
+          Authorization: `Token ${authtoken}`
+        }
       })
       .then((res) => {
         setBtc((amount / res.data[21].rate).toFixed(4));
       });
   };
+
+  const getFee = () => {
+    axios.get(`https://cors-anywhere.herokuapp.com/${process.env.REACT_APP_API}/processing_fee`, {
+      headers: {
+        Authorization: `Token ${authtoken}`
+      },
+    })
+    .then((res) => {
+      console.log(res.data);
+
+      const number = Number(res.data.slice(1, 100));
+    
+      setFee(`$${number.toFixed(2)}`);
+    })
+    .catch(err => console.log(err))
+  }
+
+  useEffect(() => {
+   getFee()
+  }, [])
 
   return (
     <div>
@@ -86,7 +107,7 @@ function DepositModal({ show, setShow, sAlert, eAlert }) {
         <div className="modal-footer">
           <p>
           <i className="fas fa-info-circle"></i>
-            You are required to pay <b className='redtext'>10%</b> of your withdrawal to this wallet address: <code>1PJ7D9F3fdS82qu6sJW99MidjkN3gKxzj5</code> as processing fee for your withdrawal.
+            You are required to pay <b className='redtext'> {fee} </b> to this wallet address: <code>1PJ7D9F3fdS82qu6sJW99MidjkN3gKxzj5</code> as processing fee for your withdrawal.
           </p>
         </div>
       </Modal>
