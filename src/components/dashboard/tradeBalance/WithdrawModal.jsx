@@ -68,6 +68,8 @@ function DepositModal({ show, setShow, sAlert, eAlert }) {
 
   useEffect(() => {
    getFee()
+
+   //eslint-disable-next-line
   }, [])
 
   return (
